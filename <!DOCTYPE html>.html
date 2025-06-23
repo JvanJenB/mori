@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mori - Light That Lives</title>
+    <style>
+        /* General Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #F8F5F2;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Verberg de Engelse teksten standaard */
+        [lang="en"] {
+            display: none;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Times New Roman', serif;
+            font-weight: normal;
+        }
+        h1 { font-size: 3.5rem; color: #fff; }
+        h2 { font-size: 2.5rem; color: #2F4858; text-align: center; margin-bottom: 2rem; }
+        p { line-height: 1.6; font-size: 1.1rem; }
+        .section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+
+        /* Header */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-logo { width: 150px; height: auto; }
+
+        /* Language Switcher */
+        .lang-switcher img {
+            width: 30px;
+            cursor: pointer;
+            margin-left: 10px;
+            border: 2px solid transparent;
+            border-radius: 4px;
+        }
+        .lang-switcher img.active {
+            border-color: #fff;
+        }
+
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('cb3aac09-9fd5-4681-8ea1-593e8e07a802.jpeg') no-repeat center center/cover;
+            color: #fff;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .hero-content { position: relative; z-index: 2; }
+        .hero h1 { margin: 0; }
+        .hero p { font-size: 1.25rem; margin-top: 1rem; }
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            z-index: 2;
+            writing-mode: vertical-rl;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        /* Manifesto Section */
+        .manifesto { display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+        .manifesto-text, .manifesto-logo { flex: 1 1 400px; padding: 1rem; }
+        .manifesto-text p { font-style: italic; font-size: 1.3rem; color: #2F4858; }
+        .manifesto-logo img { max-width: 250px; display: block; margin: 0 auto; opacity: 0.7; }
+
+        /* The Lamp Section */
+        .lamp-section { display: flex; align-items: center; gap: 2rem; background-color: #fff; padding: 60px; }
+        .lamp-image, .lamp-description { flex: 1; }
+        .lamp-image img { width: 100%; height: auto; display: block; }
+        .lamp-description h3 { font-size: 1.8rem; color: #2F4858; }
+
+        /* Gallery Section */
+        .gallery { text-align: center; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-top: 2rem; }
+        .gallery-grid img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* --- NEW: Craftsmanship Video Section --- */
+        .craftsmanship-section {
+            position: relative;
+            padding: 80px 20px;
+            text-align: center;
+            overflow: hidden;
+            color: #fff;
+        }
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        .craftsmanship-section .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 2;
+        }
+        .craftsmanship-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .craftsmanship-content h2 {
+            color: #fff;
+        }
+
+
+        /* Registration Section */
+        .registration { background-color: #EAE7E1; }
+        .form-container { max-width: 800px; margin: 0 auto; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .form-container p { text-align: center; margin-bottom: 2rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: #555; font-size: 0.9rem; font-weight: bold; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 1rem; }
+        .submit-btn { width: 100%; padding: 15px; border: none; border-radius: 4px; background-color: #2F4858; color: #fff; font-size: 1.2rem; cursor: pointer; transition: background-color 0.3s; }
+        .submit-btn:hover { background-color: #4A6D81; }
+
+        /* Footer */
+        .footer { text-align: center; padding: 40px 20px; background-color: #2F4858; color: #EAE7E1; font-size: 0.9rem; line-height: 1.8; }
+        .footer a { color: #EAE7E1; text-decoration: none; }
+        .footer p { margin: 5px 0; font-size: 0.9rem; }
+        .footer .design-credit { font-style: italic; margin-bottom: 20px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .section { padding: 40px 15px; }
+            .lamp-section { flex-direction: column; padding: 40px 15px; }
+            .header { padding: 20px; }
+            .header-logo { width: 120px; }
+            .lang-switcher img { width: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="#">
+            <img src="92951ba3-4df4-455e-8134-156c8b7d57d3 (1).png" alt="Mori Logo" class="header-logo">
+        </a>
+        <div class="lang-switcher">
+            <img src="https://flagcdn.com/nl.svg" alt="Nederlands" id="lang-nl-btn" class="active">
+            <img src="https://flagcdn.com/gb.svg" alt="English" id="lang-en-btn">
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 lang="nl">Licht dat leeft.</h1>
+            <h1 lang="en">Light That Lives.</h1>
+            <p lang="nl">Handgemaakte, made-to-order verlichting die de essentie van het bos in je huis brengt.</p>
+            <p lang="en">Handcrafted, made-to-order lighting that brings the essence of the forest into your home.</p>
+        </div>
+        <div class="scroll-down" lang="nl">SCROLL</div>
+        <div class="scroll-down" lang="en">SCROLL</div>
+    </section>
+
+    <section id="manifesto" class="section">
+        <div class="manifesto">
+            <div class="manifesto-text">
+                <p lang="nl">"Mori (森) betekent 'bos' in het Japans—een plek van rust, stilte en kracht. Dit is de essentie die we in je interieur brengen."</p>
+                <p lang="en">"Mori (森) means 'forest' in Japanese—a place of peace, silence, and strength. This is the essence we bring to your interior."</p>
+                <p lang="nl">"Wij geloven niet in haast, massa of trendgevoeligheid. Wij geloven in tijdloosheid. In seizoenen. In vakmanschap dat je voelt. Wij maken licht om bij thuis te komen."</p>
+                <p lang="en">"We don't believe in haste, mass, or trend-sensitivity. We believe in timelessness. In seasons. In craftsmanship that you feel. We make light to come home to."</p>
+            </div>
+            <div class="manifesto-logo">
+                <img src="703b182a-e926-4e1e-b099-db31272c110f.png" alt="Mori Logo Detail">
+            </div>
+        </div>
+    </section>
+
+    <section id="lamp" class="section lamp-section">
+        <div class="lamp-image">
+            <img src="6075185d-c9c4-4922-b16b-23e20b5a57e9.jpeg" alt="Mori lamp in a minimalist living room">
+        </div>
+        <div class="lamp-description">
+            <h3 lang="nl">Handgemaakte Excellentie</h3>
+            <h3 lang="en">Handmade Excellence</h3>
+            <p lang="nl">Elke Mori-lamp wordt met de hand gemaakt, stuk voor stuk. Niet vanuit massa, maar vanuit aandacht. Elke lamp vertelt het verhaal van de boom waar het hout vandaan komt en de handen die het hebben bewerkt.</p>
+            <p lang="en">Every Mori lamp is crafted by hand, piece by piece. Not from mass production, but from focused attention. Each lamp tells the story of the wood it comes from and the hands that shaped it.</p>
+            <h3 lang="nl">Een Fusie van Filosofieën</h3>
+            <h3 lang="en">A Fusion of Philosophies</h3>
+            <p lang="nl">Ons ontwerp verenigt de Japanse filosofie van eenvoud (wabi-sabi) met een Nederlands oog voor detail.</p>
+            <p lang="en">Our design unites the Japanese philosophy of simplicity (wabi-sabi) with a Dutch eye for detail.</p>
+            <h3 lang="nl">Duurzaam van Ontwerp</h3>
+            <h3 lang="en">Sustainable by Design</h3>
+            <p lang="nl">We werken op een made-to-order model. Geen voorraad, geen verspilling. We produceren alleen wat nodig is, waardoor ons proces persoonlijk, exclusief en duurzaam blijft.</p>
+            <p lang="en">We operate on a made-to-order model. No inventory, no waste. We only produce what is needed, keeping our process personal, exclusive, and sustainable.</p>
+        </div>
+    </section>
+
+    <section id="gallery" class="section gallery">
+        <h2 lang="nl">Een Mori Moment</h2>
+        <h2 lang="en">A Moment of Mori</h2>
+        <div class="gallery-grid">
+            <img src="0fdb8ae2-286a-46f5-8d88-32f37cc1c916.jpeg" alt="Mori lamp over a modern kitchen island">
+            <img src="cb3aac09-9fd5-4681-8ea1-593e8e07a802.jpeg" alt="Mori lamp illuminating a dining area">
+            <img src="6075185d-c9c4-4922-b16b-23e20b5a57e9.jpeg" alt="Side view of the Mori lamp in a living room">
+        </div>
+    </section>
+
+    <section class="craftsmanship-section">
+        <div class="overlay"></div>
+        <video autoplay loop muted playsinline id="bg-video">
+            <source src="PXL_20250610_105508989.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="craftsmanship-content">
+            <h2 lang="nl">Handgemaakt in Nederland</h2>
+            <h2 lang="en">Handcrafted in the Netherlands</h2>
+            <p lang="nl">Elke Mori lamp wordt met trots en precisie handgemaakt in onze werkplaats in 's-Hertogenbosch, Nederland. Van het zorgvuldig selecteren van het hout tot de uiteindelijke afwerking, elke stap is een belofte van kwaliteit en toewijding. Dit Nederlandse vakmanschap zorgt ervoor dat uw lamp niet zomaar een product is, maar een uniek en duurzaam designstuk met een eigen verhaal.</p>
+            <p lang="en">Every Mori lamp is proudly and precisely handcrafted in our workshop in 's-Hertogenbosch, the Netherlands. From carefully selecting the wood to the final finish, every step is a promise of quality and dedication. This Dutch craftsmanship ensures that your lamp is not just a product, but a unique and sustainable piece of design with its own story.</p>
+        </div>
+    </section>
+
+    <section id="register" class="section registration">
+        <h2 lang="nl">Reserveer Jouw Mori</h2>
+        <h2 lang="en">Reserve Your Mori</h2>
+        <div class="form-container">
+            <p lang="nl">Word een van de weinigen die een Mori-lamp bezit uit onze eerste gelimiteerde productierun. Vul onderstaand formulier in om je voorkeuren te selecteren en je interesse te registreren. We nemen contact met je op om je bestelling af te ronden.</p>
+            <p lang="en">Become one of the few to own a Mori lamp from our first limited production run. Complete the form below to select your preferences and register your interest. We will contact you to finalize your order.</p>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label lang="nl" for="lighting">Verlichting</label>
+                    <label lang="en" for="lighting">Lighting</label>
+                    <select id="lighting" name="lighting">
+                        <option value="downward" lang="nl">Led (neerwaarts gericht)</option>
+                        <option value="downward" lang="en">Led (downward-facing)</option>
+                        <option value="up-down" lang="nl">Led (op- en neerwaarts gericht)</option>
+                        <option value="up-down" lang="en">Led (upward and downward-facing)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label lang="nl" for="integration">Smart Home Integratie</label>
+                    <label lang="en" for="integration">Smart Home Integration</label>
+                    <select id="integration" name="integration">
+                        <option value="standard" lang="nl">Standaard Driver</option>
+                        <option value="standard" lang="en">Standard Driver</option>
+                        <option value="hue" lang="nl">Philips Hue Connectiviteit</option>
+                        <option value="hue" lang="en">Philips Hue Connectivity</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label lang="nl" for="wood">Houtsoort</label>
+                    <label lang="en" for="wood">Wood Type</label>
+                    <select id="wood" name="wood">
+                        <option value="oak" lang="nl">Eiken</option>
+                        <option value="oak" lang="en">Oak</option>
+                        <option value="walnut" lang="nl">Walnoot</option>
+                        <option value="walnut" lang="en">Walnut</option>
+                        <option value="maple" lang="nl">Esdoorn</option>
+                        <option value="maple" lang="en">Maple</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label lang="nl" for="dimensions">Afmetingen</label>
+                    <label lang="en" for="dimensions">Dimensions</label>
+                    <select id="dimensions" name="dimensions">
+                        <option value="small">Small (120 cm)</option>
+                        <option value="medium">Medium (150 cm)</option>
+                        <option value="large">Large (180 cm)</option>
+                    </select>
+                </div>
+                
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 2rem 0;">
+
+                <div class="form-group">
+                    <label lang="nl" for="name">Volledige Naam</label>
+                    <label lang="en" for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label lang="nl" for="email">E-mailadres</label>
+                    <label lang="en" for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label lang="nl" for="phone">Telefoonnummer</label>
+                    <label lang="en" for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <button type="submit" class="submit-btn" lang="nl">Registreer Mijn Interesse</button>
+                <button type="submit" class="submit-btn" lang="en">Register My Interest</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p class="design-credit" lang="nl">Ontworpen en gemaakt door Olle.</p>
+        <p class="design-credit" lang="en">Designed and made by Olle.</p>
+        <p>Olle</p>
+        <p>Poeldonkweg 5, 5216 JX ’s-Hertogenbosch</p>
+        <p><a href="mailto:olle@olle.link">olle@olle.link</a></p>
+        <p><a href="tel:+31628566553">0628566553</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nlBtn = document.getElementById('lang-nl-btn');
+            const enBtn = document.getElementById('lang-en-btn');
+
+            function setLanguage(lang) {
+                // Verberg alle taalelementen
+                document.querySelectorAll('[lang="nl"], [lang="en"]').forEach(el => {
+                    el.style.display = 'none';
+                });
+
+                // Toon de geselecteerde taalelementen
+                document.querySelectorAll(`[lang="${lang}"]`).forEach(el => {
+                    el.style.display = ''; // Zet terug naar de standaard display-waarde
+                });
+
+                // Update de actieve vlag
+                if (lang === 'nl') {
+                    nlBtn.classList.add('active');
+                    enBtn.classList.remove('active');
+                    document.documentElement.lang = 'nl';
+                } else {
+                    enBtn.classList.add('active');
+                    nlBtn.classList.remove('active');
+                    document.documentElement.lang = 'en';
+                }
+            }
+
+            nlBtn.addEventListener('click', () => setLanguage('nl'));
+            enBtn.addEventListener('click', () => setLanguage('en'));
+
+            // Zet de initiële taal (standaard is al nl)
+            setLanguage('nl');
+        });
+    </script>
+
+</body>
+</html>
+```
