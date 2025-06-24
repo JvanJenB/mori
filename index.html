@@ -1,3 +1,12 @@
+Oké, ik heb de extra zin toegevoegd aan de sectie met het registratieformulier.
+
+De tekst "Wil je meer van de lamp zien? Kom langs in onze werkplaats of plan een video call." (en de Engelse vertaling) is nu direct onder de titel "Reserveer Jouw Mori" geplaatst.
+
+Hier is de volledige, bijgewerkte code:
+
+### Volledige Website Code
+
+```html
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -15,25 +24,36 @@
             scroll-behavior: smooth;
         }
         
-        /* --- NEW: Language Switching CSS --- */
-        /* Hide English elements when Dutch is active */
-        .lang-nl [lang="en"] {
-            display: none;
-        }
-        /* Hide Dutch elements when English is active */
-        .lang-en [lang="nl"] {
-            display: none;
-        }
+        /* Language Switching CSS */
+        .lang-nl [lang="en"] { display: none; }
+        .lang-en [lang="nl"] { display: none; }
 
         /* Typography */
-        h1, h2, h3 {
-            font-family: 'Times New Roman', serif;
-            font-weight: normal;
-        }
+        h1, h2, h3 { font-family: 'Times New Roman', serif; font-weight: normal; }
         h1 { font-size: 3.5rem; color: #fff; }
         h2 { font-size: 2.5rem; color: #2F4858; text-align: center; margin-bottom: 2rem; }
         p { line-height: 1.6; font-size: 1.1rem; }
         .section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-full-width { padding: 60px 0; }
+
+        /* Reserve Button Style */
+        .reserve-button-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .reserve-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #2F4858;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .reserve-link:hover {
+            background-color: #4A6D81;
+        }
 
         /* Header */
         .header {
@@ -58,44 +78,24 @@
             border: 2px solid transparent;
             border-radius: 4px;
         }
-        .lang-switcher img.active {
-            border-color: #fff;
-        }
-
+        .lang-switcher img.active { border-color: #fff; }
 
         /* Hero Section */
         .hero {
             position: relative;
             height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             background: url('cb3aac09-9fd5-4681-8ea1-593e8e07a802.jpeg') no-repeat center center/cover;
             color: #fff;
         }
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 1;
-        }
+        .hero::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1; }
         .hero-content { position: relative; z-index: 2; }
         .hero h1 { margin: 0; }
         .hero p { font-size: 1.25rem; margin-top: 1rem; }
-        .scroll-down {
-            position: absolute;
-            bottom: 30px;
-            z-index: 2;
-            writing-mode: vertical-rl;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-        }
+        .scroll-down { position: absolute; bottom: 30px; z-index: 2; writing-mode: vertical-rl; font-size: 0.8rem; letter-spacing: 2px; }
 
         /* Manifesto Section */
         .manifesto { display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; }
@@ -109,53 +109,66 @@
         .lamp-image img { width: 100%; height: auto; display: block; }
         .lamp-description h3 { font-size: 1.8rem; color: #2F4858; }
 
+        /* Detail Gallery Section */
+        .detail-gallery-title {
+             max-width: 1200px;
+             margin: 0 auto;
+             padding: 0 20px;
+        }
+        .detail-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, auto);
+            margin-top: 2rem;
+        }
+        .detail-gallery-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         /* Gallery Section */
         .gallery { text-align: center; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-top: 2rem; }
         .gallery-grid img { width: 100%; height: 100%; object-fit: cover; }
         
-        /* Craftsmanship Video Section */
-        .craftsmanship-section {
-            position: relative;
-            padding: 80px 20px;
+        /* Wood Types Section */
+        .wood-types-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
             text-align: center;
-            overflow: hidden;
-            color: #fff;
+            margin-top: 2rem;
         }
-        #bg-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: 1;
-            transform: translateX(-50%) translateY(-50%);
-        }
-        .craftsmanship-section .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .wood-type-item img {
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 2;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
         }
-        .craftsmanship-content {
-            position: relative;
-            z-index: 3;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .craftsmanship-content h2 {
-            color: #fff;
+        .wood-type-item h3 {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            color: #333;
         }
 
+        /* Craftsmanship Video Section */
+        .craftsmanship-section { position: relative; padding: 80px 20px; text-align: center; overflow: hidden; color: #fff; }
+        #bg-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: 1; transform: translateX(-50%) translateY(-50%); }
+        .craftsmanship-section .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 2; }
+        .craftsmanship-content { position: relative; z-index: 3; max-width: 800px; margin: 0 auto; }
+        .craftsmanship-content h2 { color: #fff; }
+
         /* Registration Section */
-        .registration { background-color: #EAE7E1; }
+        .registration { background-color: #EAE7E1; padding-top: 60px; } 
         .form-container { max-width: 800px; margin: 0 auto; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .form-container p { text-align: center; margin-bottom: 2rem; }
+        .form-container .visit-prompt {
+            font-style: italic;
+            margin-top: -1rem;
+            margin-bottom: 2rem;
+        }
         .form-group { margin-bottom: 1.5rem; }
         .form-group label { display: block; margin-bottom: 0.5rem; color: #555; font-size: 0.9rem; font-weight: bold; }
         .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 1rem; }
@@ -169,22 +182,28 @@
         .footer .design-credit { font-style: italic; margin-bottom: 20px; }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .detail-gallery-grid, .wood-types-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
-            .section { padding: 40px 15px; }
+            .section {padding: 40px 15px;}
+            .section-full-width { padding: 40px 0; }
+            .detail-gallery-title {padding: 0 15px;}
             .lamp-section { flex-direction: column; padding: 40px 15px; }
             .header { padding: 20px; }
             .header-logo { width: 120px; }
             .lang-switcher img { width: 25px; }
+        }
+         @media (max-width: 500px) {
+            .detail-gallery-grid, .wood-types-grid { grid-template-columns: repeat(1, 1fr); }
         }
     </style>
 </head>
 <body class="lang-nl">
 
     <header class="header">
-        <a href="#">
-            <img src="92951ba3-4df4-455e-8134-156c8b7d57d3 (1).png" alt="Mori Logo" class="header-logo">
-        </a>
+        <a href="#"><img src="92951ba3-4df4-455e-8134-156c8b7d57d3 (1).png" alt="Mori Logo" class="header-logo"></a>
         <div class="lang-switcher">
             <img src="https://flagcdn.com/nl.svg" alt="Nederlands" id="lang-nl-btn" class="active">
             <img src="https://flagcdn.com/gb.svg" alt="English" id="lang-en-btn">
@@ -214,6 +233,10 @@
                 <img src="703b182a-e926-4e1e-b099-db31272c110f.png" alt="Mori Logo Detail">
             </div>
         </div>
+        <div class="reserve-button-container">
+            <a href="#register" class="reserve-link" lang="nl">Reserveer hier jouw Mori lamp</a>
+            <a href="#register" class="reserve-link" lang="en">Reserve your Mori lamp here</a>
+        </div>
     </section>
 
     <section id="lamp" class="section lamp-section">
@@ -236,6 +259,27 @@
         </div>
     </section>
 
+    <section class="section-full-width">
+        <div class="detail-gallery-title">
+            <h2 lang="nl">De lamp van dichtbij</h2>
+            <h2 lang="en">The Lamp Up Close</h2>
+        </div>
+        <div class="detail-gallery-grid">
+            <img src="PXL_20250610_092249397.PORTRAIT.jpg" alt="Detail van de houtconstructie van de Mori lamp">
+            <img src="PXL_20250610_092311407.PORTRAIT.jpg" alt="Zijaanzicht van de Mori lamp in aanbouw">
+            <img src="PXL_20250610_092324892.PORTRAIT.jpg" alt="Close-up van de hoek van de Mori lamp">
+            <img src="PXL_20250610_092405563.PORTRAIT.jpg" alt="Detail van de houtnerf op de Mori lamp">
+            <img src="PXL_20250610_092444477.PORTRAIT.jpg" alt="Houtnerf en constructie van de Mori lamp">
+            <img src="PXL_20250610_092449174.PORTRAIT.jpg" alt="Constructie van de Mori lamp met gereedschap op de achtergrond">
+            <img src="PXL_20250617_095719618.PORTRAIT.jpg" alt="Houten balken worden geklemd tijdens de productie">
+            <img src="PXL_20250617_095806875.PORTRAIT.jpg" alt="Installatie van de elektronica in de Mori lamp">
+        </div>
+        <div class="reserve-button-container">
+            <a href="#register" class="reserve-link" lang="nl">Reserveer hier jouw Mori lamp</a>
+            <a href="#register" class="reserve-link" lang="en">Reserve your Mori lamp here</a>
+        </div>
+    </section>
+
     <section id="gallery" class="section gallery">
         <h2 lang="nl">Een Mori Moment</h2>
         <h2 lang="en">A Moment of Mori</h2>
@@ -243,6 +287,10 @@
             <img src="0fdb8ae2-286a-46f5-8d88-32f37cc1c916.jpeg" alt="Mori lamp over a modern kitchen island">
             <img src="cb3aac09-9fd5-4681-8ea1-593e8e07a802.jpeg" alt="Mori lamp illuminating a dining area">
             <img src="6075185d-c9c4-4922-b16b-23e20b5a57e9.jpeg" alt="Side view of the Mori lamp in a living room">
+        </div>
+        <div class="reserve-button-container">
+            <a href="#register" class="reserve-link" lang="nl">Reserveer hier jouw Mori lamp</a>
+            <a href="#register" class="reserve-link" lang="en">Reserve your Mori lamp here</a>
         </div>
     </section>
 
@@ -258,64 +306,77 @@
             <p lang="en">Every Mori lamp is proudly and precisely handcrafted in our workshop in 's-Hertogenbosch, the Netherlands. From carefully selecting the wood to the final finish, every step is a promise of quality and dedication. This Dutch craftsmanship ensures that your lamp is not just a product, but a unique and sustainable piece of design with its own story.</p>
         </div>
     </section>
+    
+    <section id="wood-types" class="section">
+        <h2 lang="nl">Soorten hout</h2>
+        <h2 lang="en">Wood Types</h2>
+        <div class="wood-types-grid">
+            <div class="wood-type-item">
+                <img src="Eikenhout-1-1024x1024.jpg" alt="Eikenhout">
+                <h3 lang="nl">Eiken</h3>
+                <h3 lang="en">Oak</h3>
+            </div>
+            <div class="wood-type-item">
+                <img src="Plaat-Walnotenhout-DecoLegno-LS40-Poro-Noce.jpg" alt="Notenhout">
+                <h3 lang="nl">Noten</h3>
+                <h3 lang="en">Walnut</h3>
+            </div>
+            <div class="wood-type-item">
+                <img src="bamboe-visual-nieuw.jpg" alt="Bamboehout">
+                <h3 lang="nl">Bamboe</h3>
+                <h3 lang="en">Bamboo</h3>
+            </div>
+            <div class="wood-type-item">
+                <img src="images.jpeg" alt="Esdoornhout">
+                <h3 lang="nl">Esdoorn</h3>
+                <h3 lang="en">Maple</h3>
+            </div>
+        </div>
+    </section>
 
     <section id="register" class="section registration">
-        <h2 lang="nl">Reserveer Jouw Mori</h2>
-        <h2 lang="en">Reserve Your Mori</h2>
         <div class="form-container">
+            <h2 lang="nl">Reserveer Jouw Mori</h2>
+            <h2 lang="en">Reserve Your Mori</h2>
+            <p class="visit-prompt" lang="nl">Wil je meer van de lamp zien? Kom langs in onze werkplaats of plan een video call.</p>
+            <p class="visit-prompt" lang="en">Want to see more of the lamp? Visit our workshop or schedule a video call.</p>
             <p lang="nl">Word een van de weinigen die een Mori-lamp bezit uit onze eerste gelimiteerde productierun. Vul onderstaand formulier in om je voorkeuren te selecteren en je interesse te registreren. We nemen contact met je op om je bestelling af te ronden.</p>
             <p lang="en">Become one of the few to own a Mori lamp from our first limited production run. Complete the form below to select your preferences and register your interest. We will contact you to finalize your order.</p>
             <form action="#" method="POST">
                 <div class="form-group">
                     <label lang="nl">Verlichting</label>
                     <label lang="en">Lighting</label>
-                    <select name="lighting" lang="nl">
-                        <option value="downward">Led (neerwaarts gericht)</option>
-                        <option value="up-down">Led (op- en neerwaarts gericht)</option>
-                    </select>
-                    <select name="lighting" lang="en">
-                        <option value="downward">Led (downward-facing)</option>
-                        <option value="up-down">Led (upward and downward-facing)</option>
-                    </select>
+                    <select name="lighting" lang="nl"><option value="downward">Led (neerwaarts gericht)</option><option value="up-down">Led (op- en neerwaarts gericht)</option></select>
+                    <select name="lighting" lang="en"><option value="downward">Led (downward-facing)</option><option value="up-down">Led (upward and downward-facing)</option></select>
                 </div>
                 <div class="form-group">
                     <label lang="nl">Smart Home Integratie</label>
                     <label lang="en">Smart Home Integration</label>
-                    <select name="integration" lang="nl">
-                        <option value="standard">Standaard Driver</option>
-                        <option value="hue">Philips Hue Connectiviteit</option>
-                    </select>
-                    <select name="integration" lang="en">
-                        <option value="standard">Standard Driver</option>
-                        <option value="hue">Philips Hue Connectivity</option>
-                    </select>
+                    <select name="integration" lang="nl"><option value="standard">Standaard Driver</option><option value="hue">Philips Hue Connectiviteit</option></select>
+                    <select name="integration" lang="en"><option value="standard">Standard Driver</option><option value="hue">Philips Hue Connectivity</option></select>
                 </div>
                 <div class="form-group">
                     <label lang="nl">Houtsoort</label>
                     <label lang="en">Wood Type</label>
                     <select name="wood" lang="nl">
                         <option value="oak">Eiken</option>
-                        <option value="walnut">Walnoot</option>
+                        <option value="walnut">Noten</option>
+                        <option value="bamboo">Bamboe</option>
                         <option value="maple">Esdoorn</option>
                     </select>
                      <select name="wood" lang="en">
                         <option value="oak">Oak</option>
                         <option value="walnut">Walnut</option>
+                        <option value="bamboo">Bamboo</option>
                         <option value="maple">Maple</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label lang="nl">Afmetingen</label>
                     <label lang="en">Dimensions</label>
-                    <select name="dimensions">
-                        <option value="small">Small (120 cm)</option>
-                        <option value="medium">Medium (150 cm)</option>
-                        <option value="large">Large (180 cm)</option>
-                    </select>
+                    <select name="dimensions"><option value="small">Small (120 cm)</option><option value="medium">Medium (150 cm)</option><option value="large">Large (180 cm)</option></select>
                 </div>
-                
                 <hr style="border: 0; border-top: 1px solid #eee; margin: 2rem 0;">
-
                 <div class="form-group">
                     <label lang="nl">Volledige Naam</label>
                     <label lang="en">Full Name</label>
@@ -331,7 +392,6 @@
                     <label lang="en">Phone Number</label>
                     <input type="tel" name="phone" required>
                 </div>
-                
                 <button type="submit" class="submit-btn" lang="nl">Registreer Mijn Interesse</button>
                 <button type="submit" class="submit-btn" lang="en">Register My Interest</button>
             </form>
@@ -352,16 +412,12 @@
             const nlBtn = document.getElementById('lang-nl-btn');
             const enBtn = document.getElementById('lang-en-btn');
             const body = document.body;
-
             function switchLanguage(lang) {
                 body.className = 'lang-' + lang;
                 document.documentElement.lang = lang;
-
-                // Update de actieve vlag
                 nlBtn.classList.toggle('active', lang === 'nl');
                 enBtn.classList.toggle('active', lang === 'en');
             }
-
             nlBtn.addEventListener('click', () => switchLanguage('nl'));
             enBtn.addEventListener('click', () => switchLanguage('en'));
         });
@@ -369,3 +425,4 @@
 
 </body>
 </html>
+```
