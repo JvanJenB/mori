@@ -166,6 +166,49 @@
         .submit-btn { width: 100%; padding: 15px; border: none; border-radius: 4px; background-color: #2F4858; color: #fff; font-size: 1.2rem; cursor: pointer; transition: background-color 0.3s; }
         .submit-btn:hover { background-color: #4A6D81; }
 
+        /* --- NEW: Lightbox --- */
+        #delayed-lightbox {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 1000;
+            max-width: 300px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            visibility: hidden;
+        }
+        #delayed-lightbox.visible {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+        #delayed-lightbox h4 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: #2F4858;
+        }
+        #delayed-lightbox .lightbox-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #aaa;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+        #delayed-lightbox .reserve-link {
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            margin-top: 10px;
+        }
+
         /* Footer */
         .footer { text-align: center; padding: 40px 20px; background-color: #2F4858; color: #EAE7E1; font-size: 0.9rem; line-height: 1.8; }
         .footer a { color: #EAE7E1; text-decoration: none; }
@@ -188,6 +231,12 @@
         }
          @media (max-width: 500px) {
             .detail-gallery-grid, .wood-types-grid { grid-template-columns: repeat(1, 1fr); }
+            #delayed-lightbox {
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                max-width: none;
+            }
         }
     </style>
 </head>
@@ -203,203 +252,109 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1 lang="nl">Licht dat leeft.</h1>
-            <h1 lang="en">Light That Lives.</h1>
-            <p lang="nl">Handgemaakte, made-to-order verlichting die de essentie van het bos in je huis brengt.</p>
-            <p lang="en">Handcrafted, made-to-order lighting that brings the essence of the forest into your home.</p>
+            <h1 lang="nl">Licht dat leeft.</h1><h1 lang="en">Light That Lives.</h1>
+            <p lang="nl">Handgemaakte, made-to-order verlichting die de essentie van het bos in je huis brengt.</p><p lang="en">Handcrafted, made-to-order lighting that brings the essence of the forest into your home.</p>
         </div>
-        <div class="scroll-down" lang="nl">SCROLL</div>
-        <div class="scroll-down" lang="en">SCROLL</div>
+        <div class="scroll-down" lang="nl">SCROLL</div><div class="scroll-down" lang="en">SCROLL</div>
     </section>
-
     <section id="manifesto" class="section">
         <div class="manifesto">
             <div class="manifesto-text">
-                <p lang="nl">"Mori (森) betekent 'bos' in het Japans—een plek van rust, stilte en kracht. Dit is de essentie die we in je interieur brengen."</p>
-                <p lang="en">"Mori (森) means 'forest' in Japanese—a place of peace, silence, and strength. This is the essence we bring to your interior."</p>
-                <p lang="nl">"Wij geloven niet in haast, massa of trendgevoeligheid. Wij geloven in tijdloosheid. In seizoenen. In vakmanschap dat je voelt. Wij maken licht om bij thuis te komen."</p>
-                <p lang="en">"We don't believe in haste, mass, or trend-sensitivity. We believe in timelessness. In seasons. In craftsmanship that you feel. We make light to come home to."</p>
+                <p lang="nl">"Mori (森) betekent 'bos' in het Japans—een plek van rust, stilte en kracht. Dit is de essentie die we in je interieur brengen."</p><p lang="en">"Mori (森) means 'forest' in Japanese—a place of peace, silence, and strength. This is the essence we bring to your interior."</p>
+                <p lang="nl">"Wij geloven niet in haast, massa of trendgevoeligheid. Wij geloven in tijdloosheid. In seizoenen. In vakmanschap dat je voelt. Wij maken licht om bij thuis te komen."</p><p lang="en">"We don't believe in haste, mass, or trend-sensitivity. We believe in timelessness. In seasons. In craftsmanship that you feel. We make light to come home to."</p>
             </div>
-            <div class="manifesto-logo">
-                <img src="703b182a-e926-4e1e-b099-db31272c110f.png" alt="Mori Logo Detail">
-            </div>
+            <div class="manifesto-logo"><img src="703b182a-e926-4e1e-b099-db31272c110f.png" alt="Mori Logo Detail"></div>
         </div>
         <div class="reserve-button-container">
-            <a href="#register" class="reserve-link" lang="nl">Reserveer hier jouw Mori lamp</a>
-            <a href="#register" class="reserve-link" lang="en">Reserve your Mori lamp here</a>
+            <a href="#register" class="reserve-link" lang="nl">Reserveer hier jouw Mori lamp</a><a href="#register" class="reserve-link" lang="en">Reserve your Mori lamp here</a>
         </div>
     </section>
-
     <section id="lamp" class="section lamp-section">
-        <div class="lamp-image">
-            <img src="6075185d-c9c4-4922-b16b-23e20b5a57e9.jpeg" alt="Mori lamp in a minimalist living room">
-        </div>
+        <div class="lamp-image"><img src="6075185d-c9c4-4922-b16b-23e20b5a57e9.jpeg" alt="Mori lamp in a minimalist living room"></div>
         <div class="lamp-description">
-            <h3 lang="nl">Handgemaakte Excellentie</h3>
-            <h3 lang="en">Handmade Excellence</h3>
-            <p lang="nl">Elke Mori-lamp wordt met de hand gemaakt, stuk voor stuk. Niet vanuit massa, maar vanuit aandacht. Elke lamp vertelt het verhaal van de boom waar het hout vandaan komt en de handen die het hebben bewerkt.</p>
-            <p lang="en">Every Mori lamp is crafted by hand, piece by piece. Not from mass production, but from focused attention. Each lamp tells the story of the wood it comes from and the hands that shaped it.</p>
-            <h3 lang="nl">Een Fusie van Filosofieën</h3>
-            <h3 lang="en">A Fusion of Philosophies</h3>
-            <p lang="nl">Ons ontwerp verenigt de Japanse filosofie van eenvoud (wabi-sabi) met een Nederlands oog voor detail.</p>
-            <p lang="en">Our design unites the Japanese philosophy of simplicity (wabi-sabi) with a Dutch eye for detail.</p>
-            <h3 lang="nl">Duurzaam van Ontwerp</h3>
-            <h3 lang="en">Sustainable by Design</h3>
-            <p lang="nl">We werken op een made-to-order model. Geen voorraad, geen verspilling. We produceren alleen wat nodig is, waardoor ons proces persoonlijk, exclusief en duurzaam blijft.</p>
-            <p lang="en">We operate on a made-to-order model. No inventory, no waste. We only produce what is needed, keeping our process personal, exclusive, and sustainable.</p>
+            <h3 lang="nl">Handgemaakte Excellentie</h3><h3 lang="en">Handmade Excellence</h3>
+            <p lang="nl">Elke Mori-lamp wordt met de hand gemaakt, stuk voor stuk. Niet vanuit massa, maar vanuit aandacht. Elke lamp vertelt het verhaal van de boom waar het hout vandaan komt en de handen die het hebben bewerkt.</p><p lang="en">Every Mori lamp is crafted by hand, piece by piece. Not from mass production, but from focused attention. Each lamp tells the story of the wood it comes from and the hands that shaped it.</p>
+            <h3 lang="nl">Een Fusie van Filosofieën</h3><h3 lang="en">A Fusion of Philosophies</h3>
+            <p lang="nl">Ons ontwerp verenigt de Japanse filosofie van eenvoud (wabi-sabi) met een Nederlands oog voor detail.</p><p lang="en">Our design unites the Japanese philosophy of simplicity (wabi-sabi) with a Dutch eye for detail.</p>
+            <h3 lang="nl">Duurzaam van Ontwerp</h3><h3 lang="en">Sustainable by Design</h3>
+            <p lang="nl">We werken op een made-to-order model. Geen voorraad, geen verspilling. We produceren alleen wat nodig is, waardoor ons proces persoonlijk, exclusief en duurzaam blijft.</p><p lang="en">We operate on a made-to-order model. No inventory, no waste. We only produce what is needed, keeping our process personal, exclusive, and sustainable.</p>
         </div>
     </section>
-
     <section class="section-full-width">
         <div class="detail-gallery-title">
-            <h2 lang="nl">De lamp van dichtbij</h2>
-            <h2 lang="en">The Lamp Up Close</h2>
+            <h2 lang="nl">De lamp van dichtbij</h2><h2 lang="en">The Lamp Up Close</h2>
         </div>
         <div class="detail-gallery-grid">
-            <img src="PXL_20250610_092249397.PORTRAIT.jpg" alt="Detail van de houtconstructie van de Mori lamp">
-            <img src="PXL_20250610_092311407.PORTRAIT.jpg" alt="Zijaanzicht van de Mori lamp in aanbouw">
-            <img src="PXL_20250610_092324892.PORTRAIT.jpg" alt="Close-up van de hoek van de Mori lamp">
-            <img src="PXL_20250610_092405563.PORTRAIT.jpg" alt="Detail van de houtnerf op de Mori lamp">
-            <img src="PXL_20250610_092444477.PORTRAIT.jpg" alt="Houtnerf en constructie van de Mori lamp">
-            <img src="PXL_20250610_092449174.PORTRAIT.jpg" alt="Constructie van de Mori lamp met gereedschap op de achtergrond">
-            <img src="PXL_20250617_095719618.PORTRAIT.jpg" alt="Houten balken worden geklemd tijdens de productie">
-            <img src="PXL_20250617_095806875.PORTRAIT.jpg" alt="Installatie van de elektronica in de Mori lamp">
+            <img src="PXL_20250610_092249397.PORTRAIT.jpg" alt="Detail van de houtconstructie van de Mori lamp"><img src="PXL_20250610_092311407.PORTRAIT.jpg" alt="Zijaanzicht van de Mori lamp in aanbouw"><img src="PXL_20250610_092324892.PORTRAIT.jpg" alt="Close-up van de hoek van de Mori lamp"><img src="PXL_20250610_092405563.PORTRAIT.jpg" alt="Detail van de houtnerf op de Mori lamp"><img src="PXL_20250610_092444477.PORTRAIT.jpg" alt="Houtnerf en constructie van de Mori lamp"><img src="PXL_20250610_092449174.PORTRAIT.jpg" alt="Constructie van de Mori lamp met gereedschap op de achtergrond"><img src="PXL_20250617_095719618.PORTRAIT.jpg" alt="Houten balken worden geklemd tijdens de productie"><img src="PXL_20250617_095806875.PORTRAIT.jpg" alt="Installatie van de elektronica in de Mori lamp">
         </div>
         <div class="reserve-button-container">
-            <a href="#register" class="reserve-link" lang="nl">Reserveer hier jouw Mori lamp</a>
-            <a href="#register" class="reserve-link" lang="en">Reserve your Mori lamp here</a>
+            <a href="#register" class="reserve-link" lang="nl">Reserveer hier jouw Mori lamp</a><a href="#register" class="reserve-link" lang="en">Reserve your Mori lamp here</a>
         </div>
     </section>
-
     <section id="gallery" class="section gallery">
-        <h2 lang="nl">Een Mori Moment</h2>
-        <h2 lang="en">A Moment of Mori</h2>
+        <h2 lang="nl">Een Mori Moment</h2><h2 lang="en">A Moment of Mori</h2>
         <div class="gallery-grid">
-            <img src="0fdb8ae2-286a-46f5-8d88-32f37cc1c916.jpeg" alt="Mori lamp over a modern kitchen island">
-            <img src="cb3aac09-9fd5-4681-8ea1-593e8e07a802.jpeg" alt="Mori lamp illuminating a dining area">
-            <img src="6075185d-c9c4-4922-b16b-23e20b5a57e9.jpeg" alt="Side view of the Mori lamp in a living room">
+            <img src="0fdb8ae2-286a-46f5-8d88-32f37cc1c916.jpeg" alt="Mori lamp over a modern kitchen island"><img src="cb3aac09-9fd5-4681-8ea1-593e8e07a802.jpeg" alt="Mori lamp illuminating a dining area"><img src="6075185d-c9c4-4922-b16b-23e20b5a57e9.jpeg" alt="Side view of the Mori lamp in a living room">
         </div>
         <div class="reserve-button-container">
-            <a href="#register" class="reserve-link" lang="nl">Reserveer hier jouw Mori lamp</a>
-            <a href="#register" class="reserve-link" lang="en">Reserve your Mori lamp here</a>
+            <a href="#register" class="reserve-link" lang="nl">Reserveer hier jouw Mori lamp</a><a href="#register" class="reserve-link" lang="en">Reserve your Mori lamp here</a>
         </div>
     </section>
-
     <section class="craftsmanship-section">
         <div class="overlay"></div>
-        <video autoplay loop muted playsinline id="bg-video">
-            <source src="PXL_20250610_105508989.mp4" type="video/mp4">
-        </video>
+        <video autoplay loop muted playsinline id="bg-video"><source src="PXL_20250610_105508989.mp4" type="video/mp4"></video>
         <div class="craftsmanship-content">
-            <h2 lang="nl">Handgemaakt in Nederland</h2>
-            <h2 lang="en">Handcrafted in the Netherlands</h2>
-            <p lang="nl">Elke Mori lamp wordt met trots en precisie handgemaakt in onze werkplaats in 's-Hertogenbosch, Nederland. Van het zorgvuldig selecteren van het hout tot de uiteindelijke afwerking, elke stap is een belofte van kwaliteit en toewijding. Dit Nederlandse vakmanschap zorgt ervoor dat uw lamp niet zomaar een product is, maar een uniek en duurzaam designstuk met een eigen verhaal.</p>
-            <p lang="en">Every Mori lamp is proudly and precisely handcrafted in our workshop in 's-Hertogenbosch, the Netherlands. From carefully selecting the wood to the final finish, every step is a promise of quality and dedication. This Dutch craftsmanship ensures that your lamp is not just a product, but a unique and sustainable piece of design with its own story.</p>
+            <h2 lang="nl">Handgemaakt in Nederland</h2><h2 lang="en">Handcrafted in the Netherlands</h2>
+            <p lang="nl">Elke Mori lamp wordt met trots en precisie handgemaakt in onze werkplaats in 's-Hertogenbosch, Nederland. Van het zorgvuldig selecteren van het hout tot de uiteindelijke afwerking, elke stap is een belofte van kwaliteit en toewijding. Dit Nederlandse vakmanschap zorgt ervoor dat uw lamp niet zomaar een product is, maar een uniek en duurzaam designstuk met een eigen verhaal.</p><p lang="en">Every Mori lamp is proudly and precisely handcrafted in our workshop in 's-Hertogenbosch, the Netherlands. From carefully selecting the wood to the final finish, every step is a promise of quality and dedication. This Dutch craftsmanship ensures that your lamp is not just a product, but a unique and sustainable piece of design with its own story.</p>
         </div>
     </section>
-    
     <section id="wood-types" class="section">
-        <h2 lang="nl">Soorten hout</h2>
-        <h2 lang="en">Wood Types</h2>
+        <h2 lang="nl">Soorten hout</h2><h2 lang="en">Wood Types</h2>
         <div class="wood-types-grid">
-            <div class="wood-type-item">
-                <img src="Eikenhout-1-1024x1024.jpg" alt="Eikenhout">
-                <h3 lang="nl">Eiken</h3>
-                <h3 lang="en">Oak</h3>
-            </div>
-            <div class="wood-type-item">
-                <img src="Plaat-Walnotenhout-DecoLegno-LS40-Poro-Noce.jpg" alt="Notenhout">
-                <h3 lang="nl">Noten</h3>
-                <h3 lang="en">Walnut</h3>
-            </div>
-            <div class="wood-type-item">
-                <img src="bamboe-visual-nieuw.jpg" alt="Bamboehout">
-                <h3 lang="nl">Bamboe</h3>
-                <h3 lang="en">Bamboo</h3>
-            </div>
-            <div class="wood-type-item">
-                <img src="images.jpeg" alt="Esdoornhout">
-                <h3 lang="nl">Esdoorn</h3>
-                <h3 lang="en">Maple</h3>
-            </div>
+            <div class="wood-type-item"><img src="Eikenhout-1-1024x1024.jpg" alt="Eikenhout"><h3 lang="nl">Eiken</h3><h3 lang="en">Oak</h3></div>
+            <div class="wood-type-item"><img src="Plaat-Walnotenhout-DecoLegno-LS40-Poro-Noce.jpg" alt="Notenhout"><h3 lang="nl">Noten</h3><h3 lang="en">Walnut</h3></div>
+            <div class="wood-type-item"><img src="bamboe-visual-nieuw.jpg" alt="Bamboehout"><h3 lang="nl">Bamboe</h3><h3 lang="en">Bamboo</h3></div>
+            <div class="wood-type-item"><img src="images.jpeg" alt="Esdoornhout"><h3 lang="nl">Esdoorn</h3><h3 lang="en">Maple</h3></div>
         </div>
     </section>
-
     <section id="register" class="section registration">
         <div class="form-container">
-            <h2 lang="nl">Reserveer Jouw Mori</h2>
-            <h2 lang="en">Reserve Your Mori</h2>
-            <p class="visit-prompt" lang="nl">Wil je meer van de lamp zien? Kom langs in onze werkplaats of plan een video call.</p>
-            <p class="visit-prompt" lang="en">Want to see more of the lamp? Visit our workshop or schedule a video call.</p>
-            <p lang="nl">Word een van de weinigen die een Mori-lamp bezit uit onze eerste gelimiteerde productierun. Vul onderstaand formulier in om je voorkeuren te selecteren en je interesse te registreren. We nemen contact met je op om je bestelling af te ronden.</p>
-            <p lang="en">Become one of the few to own a Mori lamp from our first limited production run. Complete the form below to select your preferences and register your interest. We will contact you to finalize your order.</p>
+            <h2 lang="nl">Reserveer Jouw Mori</h2><h2 lang="en">Reserve Your Mori</h2>
+            <p class="visit-prompt" lang="nl">Wil je meer van de lamp zien? Kom langs in onze werkplaats of plan een video call.</p><p class="visit-prompt" lang="en">Want to see more of the lamp? Visit our workshop or schedule a video call.</p>
+            <p lang="nl">Word een van de weinigen die een Mori-lamp bezit uit onze eerste gelimiteerde productierun. Vul onderstaand formulier in om je voorkeuren te selecteren en je interesse te registreren. We nemen contact met je op om je bestelling af te ronden.</p><p lang="en">Become one of the few to own a Mori lamp from our first limited production run. Complete the form below to select your preferences and register your interest. We will contact you to finalize your order.</p>
             <form action="#" method="POST">
-                <div class="form-group">
-                    <label lang="nl">Verlichting</label>
-                    <label lang="en">Lighting</label>
-                    <select name="lighting" lang="nl"><option value="downward">Led (neerwaarts gericht)</option><option value="up-down">Led (op- en neerwaarts gericht)</option></select>
-                    <select name="lighting" lang="en"><option value="downward">Led (downward-facing)</option><option value="up-down">Led (upward and downward-facing)</option></select>
-                </div>
-                <div class="form-group">
-                    <label lang="nl">Smart Home Integratie</label>
-                    <label lang="en">Smart Home Integration</label>
-                    <select name="integration" lang="nl"><option value="standard">Standaard Driver</option><option value="hue">Philips Hue Connectiviteit</option></select>
-                    <select name="integration" lang="en"><option value="standard">Standard Driver</option><option value="hue">Philips Hue Connectivity</option></select>
-                </div>
-                <div class="form-group">
-                    <label lang="nl">Houtsoort</label>
-                    <label lang="en">Wood Type</label>
-                    <select name="wood" lang="nl">
-                        <option value="oak">Eiken</option>
-                        <option value="walnut">Noten</option>
-                        <option value="bamboo">Bamboe</option>
-                        <option value="maple">Esdoorn</option>
-                    </select>
-                     <select name="wood" lang="en">
-                        <option value="oak">Oak</option>
-                        <option value="walnut">Walnut</option>
-                        <option value="bamboo">Bamboo</option>
-                        <option value="maple">Maple</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label lang="nl">Afmetingen</label>
-                    <label lang="en">Dimensions</label>
-                    <select name="dimensions"><option value="small">Small (120 cm)</option><option value="medium">Medium (150 cm)</option><option value="large">Large (180 cm)</option></select>
-                </div>
+                <div class="form-group"><label lang="nl">Verlichting</label><label lang="en">Lighting</label><select name="lighting" lang="nl"><option value="downward">Led (neerwaarts gericht)</option><option value="up-down">Led (op- en neerwaarts gericht)</option></select><select name="lighting" lang="en"><option value="downward">Led (downward-facing)</option><option value="up-down">Led (upward and downward-facing)</option></select></div>
+                <div class="form-group"><label lang="nl">Smart Home Integratie</label><label lang="en">Smart Home Integration</label><select name="integration" lang="nl"><option value="standard">Standaard Driver</option><option value="hue">Philips Hue Connectiviteit</option></select><select name="integration" lang="en"><option value="standard">Standard Driver</option><option value="hue">Philips Hue Connectivity</option></select></div>
+                <div class="form-group"><label lang="nl">Houtsoort</label><label lang="en">Wood Type</label><select name="wood" lang="nl"><option value="oak">Eiken</option><option value="walnut">Noten</option><option value="bamboo">Bamboe</option><option value="maple">Esdoorn</option></select><select name="wood" lang="en"><option value="oak">Oak</option><option value="walnut">Walnut</option><option value="bamboo">Bamboo</option><option value="maple">Maple</option></select></div>
+                <div class="form-group"><label lang="nl">Afmetingen</label><label lang="en">Dimensions</label><select name="dimensions"><option value="small">Small (120 cm)</option><option value="medium">Medium (150 cm)</option><option value="large">Large (180 cm)</option></select></div>
                 <hr style="border: 0; border-top: 1px solid #eee; margin: 2rem 0;">
-                <div class="form-group">
-                    <label lang="nl">Volledige Naam</label>
-                    <label lang="en">Full Name</label>
-                    <input type="text" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label lang="nl">E-mailadres</label>
-                    <label lang="en">Email Address</label>
-                    <input type="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label lang="nl">Telefoonnummer</label>
-                    <label lang="en">Phone Number</label>
-                    <input type="tel" name="phone" required>
-                </div>
-                <button type="submit" class="submit-btn" lang="nl">Registreer Mijn Interesse</button>
-                <button type="submit" class="submit-btn" lang="en">Register My Interest</button>
+                <div class="form-group"><label lang="nl">Volledige Naam</label><label lang="en">Full Name</label><input type="text" name="name" required></div>
+                <div class="form-group"><label lang="nl">E-mailadres</label><label lang="en">Email Address</label><input type="email" name="email" required></div>
+                <div class="form-group"><label lang="nl">Telefoonnummer</label><label lang="en">Phone Number</label><input type="tel" name="phone" required></div>
+                <button type="submit" class="submit-btn" lang="nl">Registreer Mijn Interesse</button><button type="submit" class="submit-btn" lang="en">Register My Interest</button>
             </form>
         </div>
     </section>
 
     <footer class="footer">
-        <p class="design-credit" lang="nl">Ontworpen en gemaakt door Olle.</p>
-        <p class="design-credit" lang="en">Designed and made by Olle.</p>
+        <p class="design-credit" lang="nl">Ontworpen en gemaakt door Olle.</p><p class="design-credit" lang="en">Designed and made by Olle.</p>
         <p>Olle</p>
         <p>Poeldonkweg 5, 5216 JX ’s-Hertogenbosch</p>
         <p><a href="mailto:olle@olle.link">olle@olle.link</a></p>
         <p><a href="tel:+31628566553">0628566553</a></p>
     </footer>
 
+    <div id="delayed-lightbox">
+        <button id="lightbox-close-btn" class="lightbox-close">&times;</button>
+        <h4 lang="nl">Klaar om te kiezen?</h4>
+        <h4 lang="en">Ready to choose?</h4>
+        <a href="#register" class="reserve-link" lang="nl">Reserveer nu je lamp!</a>
+        <a href="#register" class="reserve-link" lang="en">Reserve your lamp now!</a>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Language Switcher
             const nlBtn = document.getElementById('lang-nl-btn');
             const enBtn = document.getElementById('lang-en-btn');
             const body = document.body;
@@ -411,9 +366,27 @@
             }
             nlBtn.addEventListener('click', () => switchLanguage('nl'));
             enBtn.addEventListener('click', () => switchLanguage('en'));
+
+            // Lightbox
+            const lightbox = document.getElementById('delayed-lightbox');
+            const closeBtn = document.getElementById('lightbox-close-btn');
+
+            // Show lightbox after 20 seconds
+            setTimeout(function() {
+                lightbox.classList.add('visible');
+            }, 20000);
+
+            // Close lightbox when 'x' is clicked
+            closeBtn.addEventListener('click', function() {
+                lightbox.classList.remove('visible');
+            });
+            
+            // Close lightbox when reserve link is clicked
+            lightbox.querySelector('.reserve-link').addEventListener('click', function() {
+                 lightbox.classList.remove('visible');
+            });
         });
     </script>
 
 </body>
 </html>
-```
