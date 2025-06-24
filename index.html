@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -15,9 +14,14 @@
             color: #333;
             scroll-behavior: smooth;
         }
-
-        /* Verberg de Engelse teksten standaard */
-        [lang="en"] {
+        
+        /* --- NEW: Language Switching CSS --- */
+        /* Hide English elements when Dutch is active */
+        .lang-nl [lang="en"] {
+            display: none;
+        }
+        /* Hide Dutch elements when English is active */
+        .lang-en [lang="nl"] {
             display: none;
         }
 
@@ -110,7 +114,7 @@
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-top: 2rem; }
         .gallery-grid img { width: 100%; height: 100%; object-fit: cover; }
         
-        /* --- NEW: Craftsmanship Video Section --- */
+        /* Craftsmanship Video Section */
         .craftsmanship-section {
             position: relative;
             padding: 80px 20px;
@@ -148,7 +152,6 @@
             color: #fff;
         }
 
-
         /* Registration Section */
         .registration { background-color: #EAE7E1; }
         .form-container { max-width: 800px; margin: 0 auto; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
@@ -176,7 +179,7 @@
         }
     </style>
 </head>
-<body>
+<body class="lang-nl">
 
     <header class="header">
         <a href="#">
@@ -246,8 +249,7 @@
     <section class="craftsmanship-section">
         <div class="overlay"></div>
         <video autoplay loop muted playsinline id="bg-video">
-            <source src="https://github.com/JvanJenB/mori/raw/refs/heads/main/PXL_20250610_105508989.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            <source src="PXL_20250610_105508989.mp4" type="video/mp4">
         </video>
         <div class="craftsmanship-content">
             <h2 lang="nl">Handgemaakt in Nederland</h2>
@@ -265,41 +267,47 @@
             <p lang="en">Become one of the few to own a Mori lamp from our first limited production run. Complete the form below to select your preferences and register your interest. We will contact you to finalize your order.</p>
             <form action="#" method="POST">
                 <div class="form-group">
-                    <label lang="nl" for="lighting">Verlichting</label>
-                    <label lang="en" for="lighting">Lighting</label>
-                    <select id="lighting" name="lighting">
-                        <option value="downward" lang="nl">Led (neerwaarts gericht)</option>
-                        <option value="downward" lang="en">Led (downward-facing)</option>
-                        <option value="up-down" lang="nl">Led (op- en neerwaarts gericht)</option>
-                        <option value="up-down" lang="en">Led (upward and downward-facing)</option>
+                    <label lang="nl">Verlichting</label>
+                    <label lang="en">Lighting</label>
+                    <select name="lighting" lang="nl">
+                        <option value="downward">Led (neerwaarts gericht)</option>
+                        <option value="up-down">Led (op- en neerwaarts gericht)</option>
+                    </select>
+                    <select name="lighting" lang="en">
+                        <option value="downward">Led (downward-facing)</option>
+                        <option value="up-down">Led (upward and downward-facing)</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label lang="nl" for="integration">Smart Home Integratie</label>
-                    <label lang="en" for="integration">Smart Home Integration</label>
-                    <select id="integration" name="integration">
-                        <option value="standard" lang="nl">Standaard Driver</option>
-                        <option value="standard" lang="en">Standard Driver</option>
-                        <option value="hue" lang="nl">Philips Hue Connectiviteit</option>
-                        <option value="hue" lang="en">Philips Hue Connectivity</option>
+                    <label lang="nl">Smart Home Integratie</label>
+                    <label lang="en">Smart Home Integration</label>
+                    <select name="integration" lang="nl">
+                        <option value="standard">Standaard Driver</option>
+                        <option value="hue">Philips Hue Connectiviteit</option>
+                    </select>
+                    <select name="integration" lang="en">
+                        <option value="standard">Standard Driver</option>
+                        <option value="hue">Philips Hue Connectivity</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label lang="nl" for="wood">Houtsoort</label>
-                    <label lang="en" for="wood">Wood Type</label>
-                    <select id="wood" name="wood">
-                        <option value="oak" lang="nl">Eiken</option>
-                        <option value="oak" lang="en">Oak</option>
-                        <option value="walnut" lang="nl">Walnoot</option>
-                        <option value="walnut" lang="en">Walnut</option>
-                        <option value="maple" lang="nl">Esdoorn</option>
-                        <option value="maple" lang="en">Maple</option>
+                    <label lang="nl">Houtsoort</label>
+                    <label lang="en">Wood Type</label>
+                    <select name="wood" lang="nl">
+                        <option value="oak">Eiken</option>
+                        <option value="walnut">Walnoot</option>
+                        <option value="maple">Esdoorn</option>
+                    </select>
+                     <select name="wood" lang="en">
+                        <option value="oak">Oak</option>
+                        <option value="walnut">Walnut</option>
+                        <option value="maple">Maple</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label lang="nl" for="dimensions">Afmetingen</label>
-                    <label lang="en" for="dimensions">Dimensions</label>
-                    <select id="dimensions" name="dimensions">
+                    <label lang="nl">Afmetingen</label>
+                    <label lang="en">Dimensions</label>
+                    <select name="dimensions">
                         <option value="small">Small (120 cm)</option>
                         <option value="medium">Medium (150 cm)</option>
                         <option value="large">Large (180 cm)</option>
@@ -309,19 +317,19 @@
                 <hr style="border: 0; border-top: 1px solid #eee; margin: 2rem 0;">
 
                 <div class="form-group">
-                    <label lang="nl" for="name">Volledige Naam</label>
-                    <label lang="en" for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required>
+                    <label lang="nl">Volledige Naam</label>
+                    <label lang="en">Full Name</label>
+                    <input type="text" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label lang="nl" for="email">E-mailadres</label>
-                    <label lang="en" for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
+                    <label lang="nl">E-mailadres</label>
+                    <label lang="en">Email Address</label>
+                    <input type="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label lang="nl" for="phone">Telefoonnummer</label>
-                    <label lang="en" for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" required>
+                    <label lang="nl">Telefoonnummer</label>
+                    <label lang="en">Phone Number</label>
+                    <input type="tel" name="phone" required>
                 </div>
                 
                 <button type="submit" class="submit-btn" lang="nl">Registreer Mijn Interesse</button>
@@ -343,38 +351,21 @@
         document.addEventListener('DOMContentLoaded', function() {
             const nlBtn = document.getElementById('lang-nl-btn');
             const enBtn = document.getElementById('lang-en-btn');
+            const body = document.body;
 
-            function setLanguage(lang) {
-                // Verberg alle taalelementen
-                document.querySelectorAll('[lang="nl"], [lang="en"]').forEach(el => {
-                    el.style.display = 'none';
-                });
-
-                // Toon de geselecteerde taalelementen
-                document.querySelectorAll(`[lang="${lang}"]`).forEach(el => {
-                    el.style.display = ''; // Zet terug naar de standaard display-waarde
-                });
+            function switchLanguage(lang) {
+                body.className = 'lang-' + lang;
+                document.documentElement.lang = lang;
 
                 // Update de actieve vlag
-                if (lang === 'nl') {
-                    nlBtn.classList.add('active');
-                    enBtn.classList.remove('active');
-                    document.documentElement.lang = 'nl';
-                } else {
-                    enBtn.classList.add('active');
-                    nlBtn.classList.remove('active');
-                    document.documentElement.lang = 'en';
-                }
+                nlBtn.classList.toggle('active', lang === 'nl');
+                enBtn.classList.toggle('active', lang === 'en');
             }
 
-            nlBtn.addEventListener('click', () => setLanguage('nl'));
-            enBtn.addEventListener('click', () => setLanguage('en'));
-
-            // Zet de initiële taal (standaard is al nl)
-            setLanguage('nl');
+            nlBtn.addEventListener('click', () => switchLanguage('nl'));
+            enBtn.addEventListener('click', () => switchLanguage('en'));
         });
     </script>
 
 </body>
 </html>
-```
