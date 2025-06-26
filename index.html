@@ -289,16 +289,20 @@
 
         /* Footer */
         .footer {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
             padding: 40px 20px;
             background-color: #2F4858;
             color: #EAE7E1;
             font-size: 0.9rem;
             line-height: 1.8;
         }
-        .footer a { color: #EAE7E1; text-decoration: underline; }
+        .footer a { color: #EAE7E1; text-decoration: none; }
+        .footer-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
         .footer-links, .footer-contact { flex: 1; min-width: 200px; }
         .footer-links a { display: block; margin: 5px 0; }
         .footer .design-credit { width: 100%; text-align: center; font-style: italic; margin-top: 20px; }
@@ -446,6 +450,7 @@
     </section>
 
     <footer class="footer">
+        <div class="footer-inner">
         <div class="footer-links">
             <a href="instructies.html" lang="nl">Ophanginstructies</a>
             <a href="instructies.html" lang="en">Hanging Instructions</a>
@@ -465,6 +470,7 @@
         </div>
         <p class="design-credit" lang="nl">Ontworpen en gemaakt door Olle.</p>
         <p class="design-credit" lang="en">Designed and made by Olle.</p>
+        </div>
     </footer>
 
     <div id="delayed-lightbox">

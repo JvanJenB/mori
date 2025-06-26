@@ -16,16 +16,20 @@
         .lang-switcher img { width: 30px; cursor: pointer; margin-left: 10px; border: 2px solid transparent; border-radius: 4px; }
         .lang-switcher img.active { border-color: #2F4858; }
         .footer {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
             padding: 40px 20px;
             background-color: #2F4858;
             color: #EAE7E1;
             font-size: 0.9rem;
             line-height: 1.8;
         }
-        .footer a { color: #EAE7E1; text-decoration: underline; }
+        .footer a { color: #EAE7E1; text-decoration: none; }
+        .footer-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
         .footer-links, .footer-contact { flex: 1; min-width: 200px; }
         .footer-links a { display: block; margin: 5px 0; }
         .disclaimer { background-color: #EAE7E1; border-left: 4px solid #2F4858; padding: 15px; margin-bottom: 20px; font-style: italic;}
@@ -93,6 +97,7 @@
     </main>
 
     <footer class="footer">
+        <div class="footer-inner">
         <div class="footer-links">
             <a href="instructies.html" lang="nl">Ophanginstructies</a><a href="instructies.html" lang="en">Hanging Instructions</a>
             <a href="voorwaarden.html" lang="nl">Algemene Voorwaarden</a><a href="voorwaarden.html" lang="en">Terms & Conditions</a>
@@ -108,6 +113,7 @@
         </div>
         <p class="design-credit" lang="nl">Ontworpen en gemaakt door Olle.</p>
         <p class="design-credit" lang="en">Designed and made by Olle.</p>
+        </div>
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
