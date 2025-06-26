@@ -13,10 +13,19 @@
         .header-logo { width: 150px; height: auto; }
         .lang-switcher img { width: 30px; cursor: pointer; margin-left: 10px; border: 2px solid transparent; border-radius: 4px; }
         .lang-switcher img.active { border-color: #2F4858; }
-        .footer { text-align: center; padding: 40px 20px; background-color: #2F4858; color: #EAE7E1; font-size: 0.9rem; line-height: 1.8; }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 40px 20px;
+            background-color: #2F4858;
+            color: #EAE7E1;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
         .footer a { color: #EAE7E1; text-decoration: underline; }
-        .footer .footer-links { margin-bottom: 20px; }
-        .footer .footer-links a { display: block; margin: 5px 0; }
+        .footer-links, .footer-contact { flex: 1; min-width: 200px; }
+        .footer-links a { display: block; margin: 5px 0; }
         .spec-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
         .spec-table th, .spec-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
         .spec-table th { background-color: #EAE7E1; }
@@ -85,9 +94,15 @@
             <a href="over-ons.html" lang="nl">Over Ons</a><a href="over-ons.html" lang="en">About Us</a>
             <a href="tech-specs.html" lang="nl">Technische Gegevens</a><a href="tech-specs.html" lang="en">Technical Specs</a>
         </div>
-        <p class="design-credit" lang="nl">Ontworpen en gemaakt door Olle.</p><p class="design-credit" lang="en">Designed and made by Olle.</p>
-        <p>Olle</p><p>Poeldonkweg 5, 5216 JX ’s-Hertogenbosch</p>
-        <p><a href="mailto:olle@olle.link">olle@olle.link</a></p><p><a href="tel:+31628566553">0628566553</a></p>
+        <div class="footer-contact">
+            <p>Mori by Olle</p>
+            <p>Poeldonkweg 5, 5216 JX ’s-Hertogenbosch</p>
+            <p><a href="https://olle.link">Olle.link</a></p>
+            <p><a href="mailto:olle@olle.link">olle@olle.link</a></p>
+            <p><a href="tel:+31628566553">0031628566553</a></p>
+        </div>
+        <p class="design-credit" lang="nl">Ontworpen en gemaakt door Olle.</p>
+        <p class="design-credit" lang="en">Designed and made by Olle.</p>
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
