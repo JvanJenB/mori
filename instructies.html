@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ophanginstructies - Mori</title>
+    <style>
+        body, html { margin: 0; padding: 0; font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #F8F5F2; color: #333; scroll-behavior: smooth; }
+        .lang-nl [lang="en"] { display: none; } .lang-en [lang="nl"] { display: none; }
+        h1, h2, h3 { font-family: 'Times New Roman', serif; font-weight: normal; }
+        h1 { font-size: 2.5rem; text-align: center; margin-bottom: 2rem; color: #2F4858;}
+        .section { padding: 60px 20px; max-width: 800px; margin: 0 auto; }
+        .header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .header-logo { width: 150px; height: auto; }
+        .lang-switcher img { width: 30px; cursor: pointer; margin-left: 10px; border: 2px solid transparent; border-radius: 4px; }
+        .lang-switcher img.active { border-color: #2F4858; }
+        .footer { text-align: center; padding: 40px 20px; background-color: #2F4858; color: #EAE7E1; font-size: 0.9rem; line-height: 1.8; }
+        .footer a { color: #EAE7E1; text-decoration: underline; margin: 0 10px; }
+        .footer .footer-links { margin-bottom: 20px; }
+        .video-placeholder { width: 100%; height: 0; padding-bottom: 56.25%; background-color: #ccc; position: relative; border-radius: 8px; }
+        .video-placeholder::after { content: '►'; font-size: 5rem; color: #fff; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        .steps { margin-top: 40px; }
+        .step { margin-bottom: 30px; }
+        .step h3 { color: #2F4858; }
+    </style>
+</head>
+<body class="lang-nl">
+    <header class="header">
+        <a href="index.html"><img src="92951ba3-4df4-455e-8134-156c8b7d57d3 (1).png" alt="Mori Logo" class="header-logo"></a>
+        <div class="lang-switcher">
+            <img src="https://flagcdn.com/nl.svg" alt="Nederlands" id="lang-nl-btn" class="active">
+            <img src="https://flagcdn.com/gb.svg" alt="English" id="lang-en-btn">
+        </div>
+    </header>
+
+    <main class="section">
+        <h1 lang="nl">Ophanginstructies</h1>
+        <h1 lang="en">Hanging Instructions</h1>
+        
+        <div class="video-placeholder"></div>
+
+        <div class="steps">
+            <div class="step" lang="nl">
+                <h3>Stap 1: Voorbereiding</h3>
+                <p>Zorg ervoor dat de stroom is uitgeschakeld. Pak de lamp voorzichtig uit en controleer of alle onderdelen aanwezig zijn: de lamp, het plafondkapje, de staalkabels en de montageschroeven.</p>
+            </div>
+            <div class="step" lang="en">
+                <h3>Step 1: Preparation</h3>
+                <p>Ensure the power is turned off. Carefully unpack the lamp and check if all parts are present: the lamp, the ceiling canopy, the steel cables, and the mounting screws.</p>
+            </div>
+            <div class="step" lang="nl">
+                <h3>Stap 2: Montage</h3>
+                <p>Bevestig het plafondkapje aan het plafond met de bijgeleverde schroeven. Zorg ervoor dat het stevig vastzit en de elektrische bedrading toegankelijk is.</p>
+            </div>
+            <div class="step" lang="en">
+                <h3>Step 2: Assembly</h3>
+                <p>Attach the ceiling canopy to the ceiling using the provided screws. Ensure it is securely fastened and the electrical wiring is accessible.</p>
+            </div>
+             <div class="step" lang="nl">
+                <h3>Stap 3: Aansluiten & Ophangen</h3>
+                <p>Verbind de elektrische draden volgens het schema. Hang de lamp aan de staalkabels en stel de gewenste hoogte in. Schakel de stroom weer in en geniet van je Mori.</p>
+            </div>
+            <div class="step" lang="en">
+                <h3>Step 3: Connecting & Hanging</h3>
+                <p>Connect the electrical wires according to the diagram. Hang the lamp on the steel cables and adjust to the desired height. Turn the power back on and enjoy your Mori.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="instructies.html" lang="nl">Ophanginstructies</a><a href="instructies.html" lang="en">Hanging Instructions</a>
+            <a href="voorwaarden.html" lang="nl">Algemene Voorwaarden</a><a href="voorwaarden.html" lang="en">Terms & Conditions</a>
+            <a href="over-ons.html" lang="nl">Over Ons</a><a href="over-ons.html" lang="en">About Us</a>
+            <a href="tech-specs.html" lang="nl">Technische Gegevens</a><a href="tech-specs.html" lang="en">Technical Specs</a>
+        </div>
+        <p class="design-credit" lang="nl">Ontworpen en gemaakt door Olle.</p><p class="design-credit" lang="en">Designed and made by Olle.</p>
+        <p>Olle</p><p>Poeldonkweg 5, 5216 JX ’s-Hertogenbosch</p>
+        <p><a href="mailto:olle@olle.link">olle@olle.link</a></p><p><a href="tel:+31628566553">0628566553</a></p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nlBtn = document.getElementById('lang-nl-btn');
+            const enBtn = document.getElementById('lang-en-btn');
+            const body = document.body;
+            function switchLanguage(lang) {
+                body.className = 'lang-' + lang;
+                document.documentElement.lang = lang;
+                nlBtn.classList.toggle('active', lang === 'nl');
+                enBtn.classList.toggle('active', lang === 'en');
+            }
+            nlBtn.addEventListener('click', () => switchLanguage('nl'));
+            enBtn.addEventListener('click', () => switchLanguage('en'));
+        });
+    </script>
+</body>
+</html>

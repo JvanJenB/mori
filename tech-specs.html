@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technische Gegevens - Mori</title>
+    <style>
+        body, html { margin: 0; padding: 0; font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #F8F5F2; color: #333; scroll-behavior: smooth; }
+        .lang-nl [lang="en"] { display: none; } .lang-en [lang="nl"] { display: none; }
+        h1 { font-family: 'Times New Roman', serif; font-weight: normal; font-size: 2.5rem; text-align: center; margin-bottom: 2rem; color: #2F4858;}
+        .section { padding: 60px 20px; max-width: 800px; margin: 0 auto; }
+        .header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .header-logo { width: 150px; height: auto; }
+        .lang-switcher img { width: 30px; cursor: pointer; margin-left: 10px; border: 2px solid transparent; border-radius: 4px; }
+        .lang-switcher img.active { border-color: #2F4858; }
+        .footer { text-align: center; padding: 40px 20px; background-color: #2F4858; color: #EAE7E1; font-size: 0.9rem; line-height: 1.8; }
+        .footer a { color: #EAE7E1; text-decoration: underline; margin: 0 10px; }
+        .footer .footer-links { margin-bottom: 20px; }
+        .spec-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+        .spec-table th, .spec-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .spec-table th { background-color: #EAE7E1; }
+    </style>
+</head>
+<body class="lang-nl">
+    <header class="header">
+        <a href="index.html"><img src="92951ba3-4df4-455e-8134-156c8b7d57d3 (1).png" alt="Mori Logo" class="header-logo"></a>
+        <div class="lang-switcher">
+            <img src="https://flagcdn.com/nl.svg" alt="Nederlands" id="lang-nl-btn" class="active">
+            <img src="https://flagcdn.com/gb.svg" alt="English" id="lang-en-btn">
+        </div>
+    </header>
+
+    <main class="section">
+        <h1 lang="nl">Technische Gegevens</h1>
+        <h1 lang="en">Technical Specifications</h1>
+        
+        <table class="spec-table">
+            <tr lang="nl"><th>Specificatie</th><th>Details</th></tr>
+            <tr lang="en"><th>Specification</th><th>Details</th></tr>
+            <tr>
+                <td lang="nl">Afmetingen (L x B x H)</td><td lang="en">Dimensions (L x W x H)</td>
+                <td>Small: 120 x 8 x 8 cm<br>Medium: 150 x 8 x 8 cm<br>Large: 180 x 8 x 8 cm</td>
+            </tr>
+            <tr>
+                <td lang="nl">Gewicht</td><td lang="en">Weight</td>
+                <td>Circa 5-8 kg, afhankelijk van maat en houtsoort</td>
+            </tr>
+            <tr>
+                <td lang="nl">Materiaal</td><td lang="en">Material</td>
+                <td>Massief hout (Eiken, Noten, Bamboe of Esdoorn)</td>
+            </tr>
+            <tr>
+                <td lang="nl">Lichtbron</td><td lang="en">Light Source</td>
+                <td>Geïntegreerde LED-strip</td>
+            </tr>
+            <tr>
+                <td lang="nl">Kleurtemperatuur</td><td lang="en">Color Temperature</td>
+                <td>2700K (Warm Wit)</td>
+            </tr>
+            <tr>
+                <td lang="nl">Lichtsterkte</td><td lang="en">Luminosity</td>
+                <td>~2400-3600 lumen, afhankelijk van lengte</td>
+            </tr>
+            <tr>
+                <td lang="nl">Connectiviteit</td><td lang="en">Connectivity</td>
+                <td lang="nl">Standaard (dimbaar via wandschakelaar) of Philips Hue</td>
+                <td lang="en">Standard (dimmable via wall switch) or Philips Hue</td>
+            </tr>
+             <tr>
+                <td lang="nl">Ingangsspanning</td><td lang="en">Input Voltage</td>
+                <td>220-240V</td>
+            </tr>
+            <tr>
+                <td lang="nl">Energieklasse</td><td lang="en">Energy Class</td>
+                <td>A++</td>
+            </tr>
+        </table>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="instructies.html" lang="nl">Ophanginstructies</a><a href="instructies.html" lang="en">Hanging Instructions</a>
+            <a href="voorwaarden.html" lang="nl">Algemene Voorwaarden</a><a href="voorwaarden.html" lang="en">Terms & Conditions</a>
+            <a href="over-ons.html" lang="nl">Over Ons</a><a href="over-ons.html" lang="en">About Us</a>
+            <a href="tech-specs.html" lang="nl">Technische Gegevens</a><a href="tech-specs.html" lang="en">Technical Specs</a>
+        </div>
+        <p class="design-credit" lang="nl">Ontworpen en gemaakt door Olle.</p><p class="design-credit" lang="en">Designed and made by Olle.</p>
+        <p>Olle</p><p>Poeldonkweg 5, 5216 JX ’s-Hertogenbosch</p>
+        <p><a href="mailto:olle@olle.link">olle@olle.link</a></p><p><a href="tel:+31628566553">0628566553</a></p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nlBtn = document.getElementById('lang-nl-btn');
+            const enBtn = document.getElementById('lang-en-btn');
+            const body = document.body;
+            function switchLanguage(lang) {
+                body.className = 'lang-' + lang;
+                document.documentElement.lang = lang;
+                nlBtn.classList.toggle('active', lang === 'nl');
+                enBtn.classList.toggle('active', lang === 'en');
+            }
+            nlBtn.addEventListener('click', () => switchLanguage('nl'));
+            enBtn.addEventListener('click', () => switchLanguage('en'));
+        });
+    </script>
+</body>
+</html>
