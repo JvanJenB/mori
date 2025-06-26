@@ -288,11 +288,20 @@
         }
 
         /* Footer */
-        .footer { text-align: center; padding: 40px 20px; background-color: #2F4858; color: #EAE7E1; font-size: 0.9rem; line-height: 1.8; }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 40px 20px;
+            background-color: #2F4858;
+            color: #EAE7E1;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
         .footer a { color: #EAE7E1; text-decoration: underline; }
-        .footer .footer-links { margin-bottom: 20px; }
-        .footer .footer-links a { display: block; margin: 5px 0; }
-        .footer .design-credit { font-style: italic; margin-bottom: 20px; }
+        .footer-links, .footer-contact { flex: 1; min-width: 200px; }
+        .footer-links a { display: block; margin: 5px 0; }
+        .footer .design-credit { width: 100%; text-align: center; font-style: italic; margin-top: 20px; }
 
         /* Responsive */
         @media (max-width: 1024px) {
@@ -447,11 +456,15 @@
             <a href="tech-specs.html" lang="nl">Technische Gegevens</a>
             <a href="tech-specs.html" lang="en">Technical Specs</a>
         </div>
-        <p class="design-credit" lang="nl">Ontworpen en gemaakt door Olle.</p><p class="design-credit" lang="en">Designed and made by Olle.</p>
-        <p>Olle</p>
-        <p>Poeldonkweg 5, 5216 JX ’s-Hertogenbosch</p>
-        <p><a href="mailto:olle@olle.link">olle@olle.link</a></p>
-        <p><a href="tel:+31628566553">0628566553</a></p>
+        <div class="footer-contact">
+            <p>Mori by Olle</p>
+            <p>Poeldonkweg 5, 5216 JX ’s-Hertogenbosch</p>
+            <p><a href="https://olle.link">Olle.link</a></p>
+            <p><a href="mailto:olle@olle.link">olle@olle.link</a></p>
+            <p><a href="tel:+31628566553">0031628566553</a></p>
+        </div>
+        <p class="design-credit" lang="nl">Ontworpen en gemaakt door Olle.</p>
+        <p class="design-credit" lang="en">Designed and made by Olle.</p>
     </footer>
 
     <div id="delayed-lightbox">
