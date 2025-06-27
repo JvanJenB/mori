@@ -5,11 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technische Gegevens - Mori</title>
     <style>
+        :root {
+            --accent-color: #2F4858;
+        }
         body, html { margin: 0; padding: 0; font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #F8F5F2; color: #333; scroll-behavior: smooth; }
         .lang-nl [lang="en"] { display: none; } .lang-en [lang="nl"] { display: none; }
         h1 { font-family: 'Times New Roman', serif; font-weight: normal; font-size: 2.5rem; text-align: center; margin-bottom: 2rem; color: #2F4858;}
         .section { padding: 60px 20px; max-width: 800px; margin: 0 auto; }
-        .header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .site-header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+        .site-header.scrolled {
+            padding: 10px 40px;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
         .header-logo { width: 150px; height: auto; }
         .lang-switcher img { width: 30px; cursor: pointer; margin-left: 10px; border: 2px solid transparent; border-radius: 4px; }
         .lang-switcher img.active { border-color: #2F4858; }
@@ -39,7 +57,7 @@
     </style>
 </head>
 <body class="lang-nl">
-    <header class="header">
+    <header class="site-header">
         <a href="index.html"><img src="logo-dark.png" alt="Mori Logo" class="header-logo"></a>
         <div class="lang-switcher">
             <img src="https://flagcdn.com/nl.svg" alt="Nederlands" id="lang-nl-btn" class="active">
@@ -122,8 +140,13 @@
                 nlBtn.classList.toggle('active', lang === 'nl');
                 enBtn.classList.toggle('active', lang === 'en');
             }
-            nlBtn.addEventListener('click', () => switchLanguage('nl'));
+           nlBtn.addEventListener('click', () => switchLanguage('nl'));
             enBtn.addEventListener('click', () => switchLanguage('en'));
+
+            const header = document.querySelector('.site-header');
+            document.addEventListener('scroll', () => {
+                header.classList.toggle('scrolled', window.pageYOffset > 0);
+            });
         });
     </script>
 </body>
