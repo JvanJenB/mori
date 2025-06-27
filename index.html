@@ -73,14 +73,21 @@
         .header-logo { width: 150px; height: auto; }
 
         /* Language Switcher */
-        .lang-switcher img {
-            width: 30px;
+        .lang-switcher { display: flex; align-items: center; }
+        .lang-switcher span {
             cursor: pointer;
-            margin-left: 10px;
+            margin: 0 4px;
             border: 2px solid transparent;
             border-radius: 4px;
+            padding: 2px 6px;
+            color: #fff;
         }
-        .lang-switcher img.active { border-color: #fff; }
+        .lang-switcher span.separator {
+            cursor: default;
+            border: none;
+            padding: 0;
+        }
+        .lang-switcher span.active { border-color: #fff; }
         .fixed-switcher {
             position: fixed;
             top: 20px;
@@ -345,7 +352,7 @@
             .lamp-section { flex-direction: column; padding: 40px 15px; }
             .site-header { padding: 20px; }
             .header-logo { width: 120px; }
-            .lang-switcher img { width: 25px; }
+            .lang-switcher span { font-size: 0.9rem; }
         }
          @media (max-width: 500px) {
             .detail-gallery-grid, .wood-types-grid { grid-template-columns: repeat(1, 1fr); }
@@ -360,8 +367,9 @@
 </head>
 <body class="lang-nl">
     <div class="lang-switcher fixed-switcher">
-        <img src="flag-nl.svg" alt="Nederlands" id="lang-nl-btn" class="active">
-        <img src="flag-gb.svg" alt="English" id="lang-en-btn">
+        <span id="lang-nl-btn" class="active">NL</span>
+        <span class="separator">|</span>
+        <span id="lang-en-btn">ENG</span>
     </div>
     <section class="hero">
         <img src="logo-light.png" alt="Mori Logo" class="hero-logo">
