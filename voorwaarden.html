@@ -13,18 +13,6 @@
         .section { padding: 60px 20px; max-width: 800px; margin: 0 auto; line-height: 1.6; }
         .header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .header-logo { width: 150px; height: auto; }
-        .main-menu {
-            flex: 1;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        .main-menu a {
-            color: #2F4858;
-            text-decoration: none;
-        }
-        .main-menu a:hover { text-decoration: underline; }
         .lang-switcher img { width: 30px; cursor: pointer; margin-left: 10px; border: 2px solid transparent; border-radius: 4px; }
         .lang-switcher img.active { border-color: #2F4858; }
         .footer {
@@ -47,16 +35,6 @@
 <body class="lang-nl">
     <header class="header">
         <a href="index.html"><img src="92951ba3-4df4-455e-8134-156c8b7d57d3 (1).png" alt="Mori Logo" class="header-logo"></a>
-        <nav class="main-menu">
-            <a href="instructies.html" lang="nl">Ophanginstructies</a>
-            <a href="instructies.html" lang="en">Hanging Instructions</a>
-            <a href="voorwaarden.html" lang="nl">Algemene Voorwaarden</a>
-            <a href="voorwaarden.html" lang="en">Terms &amp; Conditions</a>
-            <a href="over-ons.html" lang="nl">Over Ons</a>
-            <a href="over-ons.html" lang="en">About Us</a>
-            <a href="tech-specs.html" lang="nl">Technische Gegevens</a>
-            <a href="tech-specs.html" lang="en">Technical Specs</a>
-        </nav>
         <div class="lang-switcher">
             <img src="https://flagcdn.com/nl.svg" alt="Nederlands" id="lang-nl-btn" class="active">
             <img src="https://flagcdn.com/gb.svg" alt="English" id="lang-en-btn">
@@ -116,6 +94,12 @@
     </main>
 
     <footer class="footer">
+        <div class="footer-links">
+            <a href="instructies.html" lang="nl">Ophanginstructies</a><a href="instructies.html" lang="en">Hanging Instructions</a>
+            <a href="voorwaarden.html" lang="nl">Algemene Voorwaarden</a><a href="voorwaarden.html" lang="en">Terms & Conditions</a>
+            <a href="over-ons.html" lang="nl">Over Ons</a><a href="over-ons.html" lang="en">About Us</a>
+            <a href="tech-specs.html" lang="nl">Technische Gegevens</a><a href="tech-specs.html" lang="en">Technical Specs</a>
+        </div>
         <div class="footer-contact">
             <p>Mori by Olle</p>
             <p>Poeldonkweg 5, 5216 JX ’s-Hertogenbosch</p>
