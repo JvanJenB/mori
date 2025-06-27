@@ -82,6 +82,11 @@
             color: #fff;
         }
         .lang-switcher span.active { border-color: #fff; }
+        .lang-switcher .separator {
+            color: #fff;
+            margin: 0 5px;
+            display: inline-block;
+        }
         .fixed-switcher {
             position: fixed;
             top: 20px;
@@ -361,8 +366,7 @@
 </head>
 <body class="lang-nl">
     <div class="lang-switcher fixed-switcher">
-        <span id="lang-nl-btn" class="active">NL</span> |
-        <span id="lang-en-btn">ENG</span>
+        <span id="lang-nl-btn" class="active">NL</span><span class="separator">|</span><span id="lang-en-btn">ENG</span>
     </div>
     <section class="hero">
         <img src="logo-light.png" alt="Mori Logo" class="hero-logo">
