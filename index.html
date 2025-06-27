@@ -289,18 +289,22 @@
 
         /* Footer */
         .footer {
+            background-color: #2F4858;
+            color: #EAE7E1;
+            padding: 40px 20px;
+        }
+        .footer-container {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            padding: 40px 20px;
-            background-color: #2F4858;
-            color: #EAE7E1;
+            max-width: 1200px;
+            margin: 0 auto;
             font-size: 0.9rem;
             line-height: 1.8;
-            text-align: center;
+            text-align: left;
         }
         .footer a { color: #EAE7E1; text-decoration: underline; }
-        .footer-links, .footer-contact { flex: 1; min-width: 200px; text-align: center; }
+        .footer-links, .footer-contact { flex: 1; min-width: 200px; text-align: left; }
         .footer-links a { display: block; margin: 5px 0; }
 
         /* Responsive */
@@ -446,6 +450,7 @@
     </section>
 
     <footer class="footer">
+        <div class="footer-container">
         <div class="footer-links">
             <a href="instructies.html" lang="nl">Ophanginstructies</a>
             <a href="instructies.html" lang="en">Hanging Instructions</a>
@@ -462,6 +467,7 @@
             <p><a href="https://olle.link">Olle.link</a></p>
             <p><a href="mailto:olle@olle.link">olle@olle.link</a></p>
             <p><a href="tel:+31628566553">0031628566553</a></p>
+        </div>
         </div>
     </footer>
 
