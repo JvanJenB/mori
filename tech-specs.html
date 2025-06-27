@@ -52,11 +52,15 @@
         }
         .footer a { color: #EAE7E1; text-decoration: none; }
         .footer-links, .footer-contact { flex: 1; min-width: 200px; text-align: left; }
+        .footer-links { margin-left: 200px; }
         .footer-links a { display: block; margin: 5px 0; }
         .footer p { font-size: 0.9rem; margin: 5px 0; }
         .spec-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
         .spec-table th, .spec-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
         .spec-table th { background-color: #EAE7E1; }
+        @media (max-width: 768px) {
+            .footer-links { margin-left: 0; }
+        }
     </style>
 </head>
 <body class="lang-nl subpage">
