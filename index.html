@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mori - Light That Lives</title>
     <style>
+        :root {
+            --accent-color: #2F4858;
+        }
+
         /* General Styles */
         body, html {
             margin: 0;
@@ -47,10 +51,9 @@
         }
 
         /* Header */
-        .header {
-            position: absolute;
+        .site-header {
+            position: sticky;
             top: 0;
-            left: 0;
             width: 100%;
             padding: 20px 40px;
             box-sizing: border-box;
@@ -58,6 +61,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+        .site-header.scrolled {
+            padding: 10px 40px;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         .header-logo { width: 150px; height: auto; }
 
@@ -319,7 +329,7 @@
             .section-full-width { padding: 40px 0; }
             .detail-gallery-title {padding: 0 15px;}
             .lamp-section { flex-direction: column; padding: 40px 15px; }
-            .header { padding: 20px; }
+            .site-header { padding: 20px; }
             .header-logo { width: 120px; }
             .lang-switcher img { width: 25px; }
         }
@@ -336,7 +346,7 @@
 </head>
 <body class="lang-nl">
 
-    <header class="header">
+    <header class="site-header">
         <a href="index.html"><img src="logo-light.png" alt="Mori Logo" class="header-logo"></a>
         <div class="lang-switcher">
             <img src="https://flagcdn.com/nl.svg" alt="Nederlands" id="lang-nl-btn" class="active">
@@ -497,6 +507,11 @@
             }
             nlBtn.addEventListener('click', () => switchLanguage('nl'));
             enBtn.addEventListener('click', () => switchLanguage('en'));
+
+            const header = document.querySelector('.site-header');
+            document.addEventListener('scroll', () => {
+                header.classList.toggle('scrolled', window.pageYOffset > 0);
+            });
 
             // Lightbox
             const lightbox = document.getElementById('delayed-lightbox');
