@@ -32,6 +32,7 @@
         .header-logo { width: 150px; height: auto; }
         .lang-switcher span { cursor: pointer; margin-left: 10px; border: 2px solid transparent; border-radius: 4px; padding: 2px 6px; color: #fff; }
         .lang-switcher span.active { border-color: #fff; }
+        .lang-switcher .separator { color: #fff; margin: 0 5px; display: inline-block; }
         .fixed-switcher { position: fixed; top: 20px; right: 40px; z-index: 11; }
         .footer {
             background-color: #2F4858;
@@ -60,8 +61,7 @@
 </head>
 <body class="lang-nl subpage">
     <div class="lang-switcher fixed-switcher">
-        <span id="lang-nl-btn" class="active">NL</span> |
-        <span id="lang-en-btn">ENG</span>
+        <span id="lang-nl-btn" class="active">NL</span><span class="separator">|</span><span id="lang-en-btn">ENG</span>
     </div>
     <header class="site-header">
         <a href="index.html"><img src="logo-dark.png" alt="Mori Logo" class="header-logo"></a>
