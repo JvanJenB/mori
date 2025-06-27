@@ -12,6 +12,29 @@
         .lang-nl [lang="en"] { display: none; } .lang-en [lang="nl"] { display: none; }
         h1 { font-family: 'Times New Roman', serif; font-weight: normal; font-size: 2.5rem; text-align: center; margin-bottom: 2rem; color: #2F4858;}
         .section { padding: 60px 20px; max-width: 800px; margin: 0 auto; text-align: center; }
+        .about-section {
+            position: relative;
+            background: url('over ons background.jpg') no-repeat center center/cover;
+            color: #fff;
+        }
+        .about-section h1,
+        .about-section p {
+            color: #fff;
+        }
+        .about-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        .about-section > * {
+            position: relative;
+            z-index: 2;
+        }
         .story-text { line-height: 1.8; font-size: 1.2rem; }
         .site-header {
             position: sticky;
@@ -76,7 +99,7 @@
         <a href="index.html"><img src="logo-dark.png" alt="Mori Logo" class="header-logo"></a>
     </header>
 
-    <main class="section">
+    <main class="section about-section">
         <h1 lang="nl">Over ons</h1>
         <h1 lang="en">About us</h1>
         <p class="story-text" lang="nl">Mori is ontstaan uit een vriendschap tussen drie vrienden: Olle, de houtbewerker met een passie voor perfectie; John, die de lampen in beeld brengt; en Rik, de creative die ons verhaal vertelt. Gevestigd in een oude werkplaats in 's-Hertogenbosch, delen we een liefde voor natuurlijke materialen en tijdloos design. Samen creëren we meer dan alleen lampen; we maken rustpunten in een snelle wereld, met de hoop dat elk stuk een beetje van die rust bij jou thuis brengt.</p>
