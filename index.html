@@ -81,6 +81,12 @@
             border-radius: 4px;
         }
         .lang-switcher img.active { border-color: #fff; }
+        .fixed-switcher {
+            position: fixed;
+            top: 20px;
+            right: 40px;
+            z-index: 11;
+        }
 
         /* Hero Section */
         .hero {
@@ -346,15 +352,10 @@
     </style>
 </head>
 <body class="lang-nl">
-
-    <header class="site-header">
-        <a href="index.html"><img src="logo-light.png" alt="Mori Logo" class="header-logo"></a>
-        <div class="lang-switcher">
-            <img src="https://flagcdn.com/nl.svg" alt="Nederlands" id="lang-nl-btn" class="active">
-            <img src="https://flagcdn.com/gb.svg" alt="English" id="lang-en-btn">
-        </div>
-    </header>
-
+    <div class="lang-switcher fixed-switcher">
+        <img src="flag-nl.svg" alt="Nederlands" id="lang-nl-btn" class="active">
+        <img src="flag-gb.svg" alt="English" id="lang-en-btn">
+    </div>
     <section class="hero">
         <div class="hero-content">
             <h1 lang="nl">Licht dat leeft.</h1><h1 lang="en">Light That Lives.</h1>
@@ -510,9 +511,11 @@
             enBtn.addEventListener('click', () => switchLanguage('en'));
 
             const header = document.querySelector('.site-header');
-            document.addEventListener('scroll', () => {
-                header.classList.toggle('scrolled', window.pageYOffset > 0);
-            });
+            if (header) {
+                document.addEventListener('scroll', () => {
+                    header.classList.toggle('scrolled', window.pageYOffset > 0);
+                });
+            }
 
             // Lightbox
             const lightbox = document.getElementById('delayed-lightbox');
