@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestellen - Mori</title>
+    <style>
+        :root {
+            --accent-color: #2F4858;
+        }
+        body, html { margin: 0; padding: 0; overflow-x: hidden; font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #F8F5F2; color: #333; scroll-behavior: smooth; }
+        .lang-nl [lang="en"] { display: none; }
+        .lang-en [lang="nl"] { display: none; }
+        .section { padding: 60px 20px; max-width: 800px; margin: 0 auto; }
+        .site-header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            padding: 8px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+            z-index: 12;
+        }
+        .site-header.scrolled {
+            padding: 4px 40px;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header-logo { width: 150px; height: auto; }
+        .lang-switcher span { cursor: pointer; margin: 0 10px; border: 2px solid transparent; border-radius: 4px; padding: 2px 6px; color: #fff; }
+        .lang-switcher span.active { border-color: #fff; }
+        .lang-switcher .separator { color: #fff; margin: 0 5px; display: inline-block; }
+        .fixed-switcher { position: fixed; top: 20px; right: 40px; z-index: 11; }
+        .registration { background-color: #EAE7E1; padding-top: 60px; }
+        .form-container { max-width: 800px; margin: 0 auto; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .form-container p { text-align: center; margin-bottom: 2rem; }
+        .form-container .visit-prompt { font-style: italic; margin-top: -1rem; margin-bottom: 2rem; }
+        .form-container iframe { width: 100%; border: 0; height: 2031px; }
+        @media (max-width: 640px) {
+            .form-container iframe { height: 2600px; }
+        }
+    </style>
+</head>
+<body class="lang-nl subpage">
+    <div class="lang-switcher fixed-switcher">
+        <span id="lang-nl-btn" class="active">NL</span><span class="separator">|</span><span id="lang-en-btn">ENG</span>
+    </div>
+    <header class="site-header">
+        <a href="index.html"><img src="logo-dark.png" alt="Mori Logo" class="header-logo"></a>
+    </header>
+    <section id="bestellen" class="section registration">
+        <div class="form-container">
+            <h2 lang="nl">Reserveer jouw Mori</h2><h2 lang="en">Reserve your Mori</h2>
+            <p class="visit-prompt" lang="nl">Wil je meer van de lamp zien? Kom langs in onze werkplaats of plan een video call.</p><p class="visit-prompt" lang="en">Want to see more of the lamp? Visit our workshop or schedule a video call.</p>
+            <p lang="nl">Word een van de weinigen die een Mori-lamp bezit uit onze eerste gelimiteerde productierun. Vul onderstaand formulier in om je voorkeuren te selecteren en je interesse te registreren. We nemen contact met je op om je bestelling af te ronden.</p><p lang="en">Become one of the few to own a Mori lamp from our first limited production run. Complete the form below to select your preferences and register your interest. We will contact you to finalize your order.</p>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfmFCxtVkPsMrlkViqmIlmNcr3-hBzJgn8ri8w_UERJCdD7hA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Laden…</iframe>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nlBtn = document.getElementById('lang-nl-btn');
+            const enBtn = document.getElementById('lang-en-btn');
+            const body = document.body;
+            function switchLanguage(lang) {
+                body.className = 'lang-' + lang + ' subpage';
+                document.documentElement.lang = lang;
+                nlBtn.classList.toggle('active', lang === 'nl');
+                enBtn.classList.toggle('active', lang === 'en');
+            }
+            nlBtn.addEventListener('click', () => switchLanguage('nl'));
+            enBtn.addEventListener('click', () => switchLanguage('en'));
+        });
+    </script>
+</body>
+</html>
