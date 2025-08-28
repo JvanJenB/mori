@@ -210,10 +210,12 @@
         /* Wood types Section */
         .wood-types-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             text-align: center;
-            margin-top: 2rem;
+            justify-content: center;
+            margin: 2rem auto 0;
+            max-width: 600px;
         }
         .wood-type-item img {
             width: 100%;
@@ -341,7 +343,7 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .detail-gallery-grid, .wood-types-grid { grid-template-columns: repeat(2, 1fr); }
+            .detail-gallery-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
@@ -355,7 +357,7 @@
             .footer-links { margin-left: 0; }
         }
          @media (max-width: 500px) {
-            .detail-gallery-grid, .wood-types-grid { grid-template-columns: repeat(1, 1fr); }
+            .detail-gallery-grid { grid-template-columns: repeat(1, 1fr); }
             #delayed-lightbox {
                 left: 10px;
                 right: 10px;
@@ -461,8 +463,6 @@
         <div class="wood-types-grid">
             <div class="wood-type-item"><img src="Eikenhout-1-1024x1024.jpg" alt="Eikenhout"><h3 lang="nl">Eiken</h3><h3 lang="en">Oak</h3></div>
             <div class="wood-type-item"><img src="Plaat-Walnotenhout-DecoLegno-LS40-Poro-Noce.jpg" alt="Notenhout"><h3 lang="nl">Noten</h3><h3 lang="en">Walnut</h3></div>
-            <div class="wood-type-item"><img src="bamboe-visual-nieuw.jpg" alt="Bamboehout"><h3 lang="nl">Bamboe</h3><h3 lang="en">Bamboo</h3></div>
-            <div class="wood-type-item"><img src="images.jpeg" alt="Esdoornhout"><h3 lang="nl">Esdoorn</h3><h3 lang="en">Maple</h3></div>
         </div>
     </section>
     <section id="register" class="section registration">
