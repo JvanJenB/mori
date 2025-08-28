@@ -354,13 +354,49 @@
             .lang-switcher span { font-size: 0.9rem; }
             .footer-links { margin-left: 0; }
         }
-         @media (max-width: 500px) {
+        @media (max-width: 500px) {
             .detail-gallery-grid, .wood-types-grid { grid-template-columns: repeat(1, 1fr); }
             #delayed-lightbox {
                 left: 10px;
                 right: 10px;
                 bottom: 10px;
                 max-width: none;
+            }
+        }
+
+        /* Popup Styles */
+        #popup {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        #popupContent {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            width: 720px;
+            max-width: 90%;
+            position: relative;
+        }
+        #closePopup {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            border: none;
+            background: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            #popupContent {
+                margin: 20% auto;
+                width: 90%;
             }
         }
     </style>
@@ -469,7 +505,7 @@
             <p class="visit-prompt" lang="nl">Wil je meer van de lamp zien? Kom langs in onze werkplaats of plan een video call.</p><p class="visit-prompt" lang="en">Want to see more of the lamp? Visit our workshop or schedule a video call.</p>
             <p lang="nl">Word een van de weinigen die een Mori-lamp bezit uit onze eerste gelimiteerde productierun. Vul onderstaand formulier in om je voorkeuren te selecteren en je interesse te registreren. We nemen contact met je op om je bestelling af te ronden.</p><p lang="en">Become one of the few to own a Mori lamp from our first limited production run. Complete the form below to select your preferences and register your interest. We will contact you to finalize your order.</p>
             <div class="reserve-button-container">
-                <a href="/bestellen" class="reserve-link" lang="nl">Bestel</a><a href="/bestellen" class="reserve-link" lang="en">Order</a>
+                <a href="#" class="reserve-link bestel-btn" lang="nl">Bestel</a><a href="#" class="reserve-link bestel-btn" lang="en">Order</a>
             </div>
         </div>
     </section>
@@ -506,6 +542,13 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
 
+    <div id="popup">
+        <div id="popupContent">
+            <button id="closePopup">&times;</button>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfmFCxtVkPsMrlkViqmIlmNcr3-hBzJgn8ri8w_UERJCdD7hA/viewform?embedded=true" width="700" height="520" frameborder="0" marginheight="0" marginwidth="0">Laden…</iframe>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Language Switcher
@@ -520,6 +563,25 @@
             }
             nlBtn.addEventListener('click', () => switchLanguage('nl'));
             enBtn.addEventListener('click', () => switchLanguage('en'));
+
+            // Popup order form
+            const bestelButtons = document.querySelectorAll('.bestel-btn');
+            const popup = document.getElementById('popup');
+            const closePopup = document.getElementById('closePopup');
+            bestelButtons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    popup.style.display = 'block';
+                });
+            });
+            closePopup.addEventListener('click', function() {
+                popup.style.display = 'none';
+            });
+            window.addEventListener('click', function(e) {
+                if (e.target === popup) {
+                    popup.style.display = 'none';
+                }
+            });
 
             // Lightbox
             const lightbox = document.getElementById('delayed-lightbox');
