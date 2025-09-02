@@ -38,17 +38,7 @@
         .form-container { max-width: 800px; margin: 0 auto; background: #fff; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .form-container p { text-align: center; margin-bottom: 2rem; }
         .form-container .visit-prompt { font-style: italic; margin-top: -1rem; margin-bottom: 2rem; }
-        .form-container iframe {
-            width: 100%;
-            border: 0;
-            aspect-ratio: 640 / 1829;
-            min-height: 1829px;
-        }
-        @media (max-width: 640px) {
-            .form-container iframe {
-                min-height: 2600px;
-            }
-        }
+        /* Removed iframe-specific styles; Fillout embed handles its own sizing */
     </style>
 </head>
 <body class="lang-nl subpage">
@@ -63,7 +53,8 @@
             <h2 lang="nl">Reserveer jouw Mori</h2><h2 lang="en">Reserve your Mori</h2>
             <p class="visit-prompt" lang="nl">Wil je meer van de lamp zien? Kom langs in onze werkplaats of plan een video call.</p><p class="visit-prompt" lang="en">Want to see more of the lamp? Visit our workshop or schedule a video call.</p>
             <p lang="nl">Word een van de weinigen die een Mori-lamp bezit uit onze eerste gelimiteerde productierun. Vul onderstaand formulier in om je voorkeuren te selecteren en je interesse te registreren. We nemen contact met je op om je bestelling af te ronden.</p><p lang="en">Become one of the few to own a Mori lamp from our first limited production run. Complete the form below to select your preferences and register your interest. We will contact you to finalize your order.</p>
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfmFCxtVkPsMrlkViqmIlmNcr3-hBzJgn8ri8w_UERJCdD7hA/viewform?embedded=true" width="640" height="1829" frameborder="0" marginheight="0" marginwidth="0">Laden…</iframe>
+            <div style="width:100%;height:500px;" data-fillout-id="5s5jvkJ6oius" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
+            <script src="https://server.fillout.com/embed/v1/"></script>
         </div>
     </section>
     <script>
